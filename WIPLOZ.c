@@ -24,6 +24,7 @@
 #include <xc.h>
 #include "PWM.h"
 
+
 //ETIQUETAS
 
 //------------------Sensores--------------
@@ -90,6 +91,33 @@ int diferencial=0;
 int last_prop;
 int setpoint=250;
 
+
+void motores(int VI, int VD){
+  //Motor izquierdo
+  if(VI>=0){
+    MI1 = 1;
+    MI2 = 0;
+  }
+  else{
+    MI1 = 0;
+    MI2 = 1;
+    VI=VI*(-1);
+  }
+  PWM1_Duty(VI);
+  
+   //motor derecho
+  if(VD>=0){
+    MD1 = 1;
+    MD2 = 0;
+  }
+  else{
+    MD1 = 0;
+    MD2 = 1;
+    VD=VD*(-1);
+  }
+   PWM2_Duty(VD);
+}
+
 //----------Subrutina de I EXT-------------
 void __interrupt(low_priority) external(){          
  if(INTCONbits.INTF == 1){                          //COMPRUEBA SI SE HA RECIBIDO UNA INTERRUPCION 
@@ -102,9 +130,73 @@ void __interrupt(low_priority) external(){
  }   
 }
 
+int Lectura(){
+    sensoresP[0]=SLL;
+    sensoresP[1]=SL;
+    sensoresP[2]=SC;
+    sensoresP[3]=SR;
+    sensoresP[4]=SRR;
+    
+    sumap=(400*sensoresP[0]+300*sensoresP[1]+200*sensoresP[3]+100*sensoresP[3]+0*sensoresP[4]);
+    suma=(sensoresP[0]+sensoresP[1]+sensoresP[3]+sensoresP[3]+sensoresP[4]);
+    pos=(sumap/suma);
+    
+    if(poslast<=200 && pos==-1){
+    pos=0;
+    }
+    if(poslast>=500 && pos==-1){
+    pos=700;
+    }
+    poslast=pos;
+    return pos;
+}
+
+void PID(){
+  proporcional=pos-setpoint;
+  derivativo=proporcional-last_prop;
+  integral=error1+error2+error3+error4+error5+error6;
+  last_prop=proporcional;
+  error6=error5;
+  error5=error4;
+  error4=error3;
+  error3=error2;
+  error2=error1;
+  error1=proporcional;
+  int diferencial=(proporcional*KP) + (derivativo*KD) + (integral*KI);
+  if(diferencial > vel) diferencial=vel;
+  else if(diferencial < -vel) diferencial=-vel;
+  (diferencial < 0)?
+  motores(vel, vel+diferencial):motores(vel-diferencial, vel);
+    
+    
+}
+
+void Frenos(){
+  if(pos<=50){
+    motores(veladelante, -velatras);
+  }
+  if(pos>=350){
+    motores(-velatras, veladelante);
+  }
+}
+
+
+
+void Trigger(){
+    while (GO==0){
+    }
+}
+
+
+
+void Lee_Linea(){
+    
+}
+
 void EST(){
 if(MSB==0 && LSB==1 ){
   m=1;  //MOD0 1
+  //no se aqui ponemos que inicie rodeando o que esquive o algo asi
 }
 else if(MSB==1 && LSB==0){
   m=2;  //MODO 2
@@ -150,110 +242,25 @@ PORTE=0b000;             //LIMPIA EL PUERTO E .
 //inicia el driver del motor
 stby=1;
 
-return ;
+return;
  }
 
 void main(void) {
+    
 inicia();                      //RUTINA QUE INICIA EL PIC 
 PWM_ST();                      //SUBRUTINA QUE INICIALIZA EL PWM
-EST();                         //lee la estrategia
-Trigger();                     //Subrutina que espera el arrancador 
-//se ejecuta en loop hasta apagarse
 while(1){
-Lectura();                     //Lee el estado de los sensores de posicion
-Frenos();
-PID();                         //Aplica control PID
-Lee_Linea();                      //lee el estado de los otros sensores de linea sin interrupcion y aplica la correcion
+motores(300,400);
+__delay_ms(3000);
+motores(-500,600);
+__delay_ms(3000);
+motores(1000,-1000);
+__delay_ms(3000);
 }
+return;
 
-}
-
-void Lectura(){
-    sensoresP[0]=SLL;
-    sensoresP[1]=SL;
-    sensoresP[2]=SC;
-    sensoresP[3]=SR;
-    sensoresP[4]=SRR;
-    
-    sumap=(400*sensoresP[0]+300*sensoresP[1]+200*sensoresP[3]+100*sensoresP[3]+0*sensoresP[4]);
-    suma=(sensoresP[0]+sensoresP[1]+sensoresP[3]+sensoresP[3]+sensoresP[4]);
-    pos=(sumap/suma);
-    
-    if(poslast<=200 && pos==-1){
-    pos=0;
-    }
-    if(poslast>=500 && pos==-1){
-    pos=700;
-    }
-    poslast=pos;
-    return pos;
-}
-
-void PID(){
-  proporcional=pos-setpoint;
-  derivativo=proporcional-last_prop;
-  integral=error1+error2+error3+error4+error5+error6;
-  last_prop=proporcional;
-  error6=error5;
-  error5=error4;
-  error4=error3;
-  error3=error2;
-  error2=error1;
-  error1=proporcional;
-  int diferencial=(proporcional*KP) + (derivativo*KD) + (integral*KI);
-  if(diferencial > vel) diferencial=vel;
-  else if(diferencial < -vel) diferencial=-vel;
-  (diferencial < 0)?
-  motores(vel, vel+diferencial):motores(vel-diferencial, vel);
-    
-    
-}
-
-void motores(int VI, int VD){
-   //Motor izquierdo
-  if(VI>=0){
-    MI1 = 1;
-    MI2 = 0;
-  }
-  else{
-    MI1 = 0;
-    MI2 = 1;
-    VI=VI*(-1);
-  }
-  PWM1_Duty(VD);
-  
-   //motor derecho
-  if(VD>=0){
-    MD1 = 1;
-    MD2 = 0;
-  }
-  else{
-    MD1 = 0;
-    MD2 = 1;
-    VD=VD*(-1);
-  }
-   PWM2_Duty(VI);
-}
-
-void Frenos(){
-  if(pos<=50){
-    motores(veladelante, -velatras);
-  }
-  if(pos>=350){
-    motores(-velatras, veladelante);
-  }
 }
 
 
 
-void Trigger(){
-    while (GO==0){
-    }
-}
-
-
-
-void Lee_Linea(){
-    
-}
 

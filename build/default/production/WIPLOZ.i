@@ -12,7 +12,7 @@
 #pragma config WRT = OFF
 #pragma config CP = OFF
 
-# 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\xc.h"
+# 18 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
@@ -109,7 +109,7 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 
 
-# 7 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\builtins.h"
+# 7 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\builtins.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
@@ -119,7 +119,7 @@ extern __nonreentrant void _delay(uint32_t);
 #pragma intrinsic(_delaywdt)
 extern __nonreentrant void _delaywdt(uint32_t);
 
-# 53 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f877a.h"
+# 53 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f877a.h"
 extern volatile unsigned char INDF __at(0x000);
 
 asm("INDF equ 00h");
@@ -1783,18 +1783,18 @@ extern volatile __bit nW __at(0x4A2);
 
 extern volatile __bit nWRITE __at(0x4A2);
 
-# 76 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\pic.h"
+# 76 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\pic.h"
 __attribute__((__unsupported__("The " "FLASH_READ" " macro function is no longer supported. Please use the MPLAB X MCC."))) unsigned char __flash_read(unsigned short addr);
 
 __attribute__((__unsupported__("The " "FLASH_WRITE" " macro function is no longer supported. Please use the MPLAB X MCC."))) void __flash_write(unsigned short addr, unsigned short data);
 
 __attribute__((__unsupported__("The " "FLASH_ERASE" " macro function is no longer supported. Please use the MPLAB X MCC."))) void __flash_erase(unsigned short addr);
 
-# 114 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\eeprom_routines.h"
+# 114 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 
-# 118 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\pic.h"
+# 118 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\pic.h"
 extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
@@ -1802,7 +1802,7 @@ extern __bank0 __bit __timeout;
 # 15 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\stdbool.h"
 typedef unsigned char bool;
 
-# 4 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\__size_t.h"
+# 4 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\__size_t.h"
 typedef unsigned size_t;
 
 # 7 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\stdarg.h"
@@ -1913,7 +1913,149 @@ void PWM1_Start();
 void PWM1_Stop();
 void PWM_ST();
 
-# 40 "WIPLOZ.c"
+# 67 "WIPLOZ.c"
+unsigned int y=0;
+int sensoresP[5];
+long int sumap, suma, pos, poslast, position;
+
+float KP=0.24;
+float KD=4.628;
+float KI=0.0025;
+int vel=100;
+int veladelante=175;
+int velatras=85;
+
+int error1=0;
+int error2=0;
+int error3=0;
+int error4=0;
+int error5=0;
+int error6=0;
+int m=0;
+
+
+int proporcional=0;
+int integral=0;
+int derivativo=0;
+int diferencial=0;
+int last_prop;
+int setpoint=250;
+
+
+void motores(int VI, int VD){
+
+if(VI>=0){
+PORTBbits.RB2 = 1;
+PORTBbits.RB3 = 0;
+}
+else{
+PORTBbits.RB2 = 0;
+PORTBbits.RB3 = 1;
+VI=VI*(-1);
+}
+PWM1_Duty(VI);
+
+
+if(VD>=0){
+PORTBbits.RB4 = 1;
+PORTBbits.RB5 = 0;
+}
+else{
+PORTBbits.RB4 = 0;
+PORTBbits.RB5 = 1;
+VD=VD*(-1);
+}
+PWM2_Duty(VD);
+}
+
+
+void __interrupt(low_priority) external(){
+if(INTCONbits.INTF == 1){
+
+# 129
+INTCONbits.INTF = 0;
+}
+}
+
+int Lectura(){
+sensoresP[0]=PORTDbits.RD4;
+sensoresP[1]=PORTDbits.RD3;
+sensoresP[2]=PORTDbits.RD2;
+sensoresP[3]=PORTDbits.RD1;
+sensoresP[4]=PORTDbits.RD0;
+
+sumap=(400*sensoresP[0]+300*sensoresP[1]+200*sensoresP[3]+100*sensoresP[3]+0*sensoresP[4]);
+suma=(sensoresP[0]+sensoresP[1]+sensoresP[3]+sensoresP[3]+sensoresP[4]);
+pos=(sumap/suma);
+
+if(poslast<=200 && pos==-1){
+pos=0;
+}
+if(poslast>=500 && pos==-1){
+pos=700;
+}
+poslast=pos;
+return pos;
+}
+
+void PID(){
+proporcional=pos-setpoint;
+derivativo=proporcional-last_prop;
+integral=error1+error2+error3+error4+error5+error6;
+last_prop=proporcional;
+error6=error5;
+error5=error4;
+error4=error3;
+error3=error2;
+error2=error1;
+error1=proporcional;
+int diferencial=(proporcional*KP) + (derivativo*KD) + (integral*KI);
+if(diferencial > vel) diferencial=vel;
+else if(diferencial < -vel) diferencial=-vel;
+(diferencial < 0)?
+motores(vel, vel+diferencial):motores(vel-diferencial, vel);
+
+
+}
+
+void Frenos(){
+if(pos<=50){
+motores(veladelante, -velatras);
+}
+if(pos>=350){
+motores(-velatras, veladelante);
+}
+}
+
+
+
+void Trigger(){
+while (PORTAbits.RA0==0){
+}
+}
+
+
+
+void Lee_Linea(){
+
+}
+
+void EST(){
+if(PORTDbits.RD7==0 && PORTDbits.RD6==1 ){
+m=1;
+
+}
+else if(PORTDbits.RD7==1 && PORTDbits.RD6==0){
+m=2;
+}
+else if(PORTDbits.RD7==1 && PORTDbits.RD6==1){
+m=3;
+}
+else{
+m=0;
+}
+}
+
 void inicia(){
 
 
@@ -1925,13 +2067,12 @@ INTCONbits.INTE = 1;
 
 OPTION_REGbits.INTEDG = 1;
 
-# 55
-TRISA=0b000000;
-TRISB=0b00000000;
+# 227
+TRISA=0b001111;
+TRISB=0b00000011;
 TRISC=0b10010000;
-TRISD=0b00000000;
+TRISD=0b11111111;
 TRISE=0b000;
-
 
 
 ADCON1= 0x06;
@@ -1942,18 +2083,27 @@ PORTC=0x00;
 PORTD=0x00;
 PORTE=0b000;
 
-return ;
+
+PORTCbits.RC0=1;
+
+return;
 }
 
 void main(void) {
+
 inicia();
 PWM_ST();
-PWM2_Duty(500);
-
+PWM2_Duty(300);
+PWM1_Duty(300);
 while(1){
-
-
-
+motores(300,400);
+_delay((unsigned long)((3000)*(4000000/4000.0)));
+motores(-500,600);
+_delay((unsigned long)((3000)*(4000000/4000.0)));
+motores(1000,-1000);
+_delay((unsigned long)((3000)*(4000000/4000.0)));
 }
 return;
+
 }
+

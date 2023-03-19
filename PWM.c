@@ -23,11 +23,16 @@ int PWM_Max_Duty(){
   return(_XTAL_FREQ/(freq*TMR2PRESCALE));
 }
 
-PWM_Init(long freq){
+PWM1_Init(long freq){
   PR2 =((_XTAL_FREQ/(freq*4*TMR2PRESCALE)) - 1);
   freq = freq;
 }
 
+PWM2_Init(long freq){
+    
+  PR2 = ((_XTAL_FREQ/(freq*4*TMR2PRESCALE)) - 1);
+  freq = freq;
+}
 
 PWM1_Duty(unsigned int duty){
     
@@ -93,7 +98,8 @@ void PWM2_Stop(){
 }
 
 void PWM_ST(){
-PWM_Init(4000);
+PWM1_Init(4000);
+PWM2_Init(4000);
 PWM1_Duty(0);
 PWM2_Duty(0);
 PWM1_Start();

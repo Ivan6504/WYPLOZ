@@ -20,9 +20,9 @@ long TMR2PRESCALE = 4;        //SE DEFINE EL VALOR QUE TOMA EL PRESCALADOR DEL T
 long freq = 1000;            //FRECUENCIA A TOMAR COMO BASE del TMR2
 
 //funciones//
-int PWM_Max_Duty();
-PWM_Init(long freq);
+PWM2_Init(long freq);
 PWM2_Duty(unsigned int duty);
+PWM1_Init(long freq);
 PWM1_Duty(unsigned int duty);
 void PWM2_Start();
 void PWM2_Stop();
