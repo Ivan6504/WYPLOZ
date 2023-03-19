@@ -23,11 +23,50 @@
 #define _XTAL_FREQ 4000000 
 #include <xc.h>
 #include "PWM.h"
-//Declaracion de variables globales//
-unsigned int y=0;
-//Fin de la declaracion de variables globales//
 
-void __interrupt(low_priority) external(){          //SE DECLARA LA RUTINA DE INTERRUPCION POR UN ENTE EXTERNO.
+//ETIQUETAS
+
+//------------------Sensores--------------
+#define SRR PORTDbits.RD0
+#define SR PORTDbits.RD1
+#define SC PORTDbits.RD2
+#define SL PORTDbits.RD3
+#define SLL PORTDbits.RD4
+#define SX PORTDbits.RD5   //sensor extra por si se usa
+
+#define SenLin1F PORTBbits.RB0    //sensor 1 frontal
+#define SenLin2F PORTAbits.RA1
+#define SenLin1B PORTAbits.RA2    //sensor 1 atras
+#define SenLin2B PORTAbits.RA3
+
+
+//------------------Control--------------
+
+//bits selector de estrategia
+#define LSB PORTDbits.RD6       
+#define MSB PORTDbits.RD7
+
+//Arrancador
+#define GO PORTAbits.RA0      
+#define READY PORTBbits.RB1 
+
+//Motores
+#define ML1 PORTBbits.RB2 
+#define ML2 PORTBbits.RB3 
+#define MR1 PORTBbits.RB4 
+#define MR2 PORTBbits.RB5 
+#define stby PORTCbits.RC0 
+#define PWML PORTCbits.RC1
+#define PWMR PORTCbits.RC2 
+
+//------------------Otros--------------
+#define roverto PORTAbits.RA4
+
+//------------Var Globales-------------
+unsigned int y=0;
+
+//----------Subrutina de I EXT-------------
+void __interrupt(low_priority) external(){          
  if(INTCONbits.INTF == 1){                          //COMPRUEBA SI SE HA RECIBIDO UNA INTERRUPCION 
   //INSERTAR LO QUE HAY QUE HACER 
      
@@ -39,13 +78,13 @@ void __interrupt(low_priority) external(){          //SE DECLARA LA RUTINA DE IN
 }
 
 void EST(){
-if(PORTDbits.RD7==0 && PORTDbits.RD6==1 ){
+if(MSB==0 && LSB==1 ){
   m=1;  //MOD0 1
 }
-else if(PORTDbits.RD7==1 && PORTDbits.RD6==0){
+else if(MSB==1 && LSB==0){
   m=2;  //MODO 2
 }
-else if(PORTDbits.RD7==1 && PORTDbits.RD6==1){
+else if(MSB==1 && LSB==1){
   m=3;  //MODO 3
 }
 else{
@@ -68,14 +107,13 @@ OPTION_REGbits.INTEDG = 1;
 
  //Inicializacion de los puertos//
 //0 SALIDA 1 ENTRADA
-TRISA=0b000000;         // Programaciòn inicial del puerto A como salidas
-TRISB=0b00000000;       // Programaciòn inicial del puerto B como salidas
-TRISC=0b10010000;       // Programaciòn inicial del puerto C como salidas
-TRISD=0b00000000;       // Programaciòn inicial del puerto D como salidas
-TRISE=0b000;            // Programaciòn inicial del puerto E como salidas
+TRISA=0b001111;   //ojo con ra4, no se si funcione xd        
+TRISB=0b00000011;       
+TRISC=0b10010000;       
+TRISD=0b11111111;       
+TRISE=0b000;            
 //Fin de la Inicializacion//    
 
-//INICIALIZACION  DE LOS PUERTOS//
 ADCON1= 0x06;  //SE CONFIGURAN LOS PUERTOS COMO DIGITALES  
 
 PORTA=0b000000;          //LIMPIA EL PUERTO A .
@@ -84,12 +122,16 @@ PORTC=0x00;              //LIMPIA EL PUERTO C .
 PORTD=0x00;              //LIMPIA EL PUERTO D .
 PORTE=0b000;             //LIMPIA EL PUERTO E .
 
+//inicia el driver del motor
+stby=1;
+
 return ;
  }
 
 void main(void) {
 inicia();                      //RUTINA QUE INICIA EL PIC 
 PWM_ST();                      //SUBRUTINA QUE INICIALIZA EL PWM
+Trigger();                     //Subrutina que espera el arrancador 
 PWM2_Duty(500);                //INICIA EN BASE LA SEÑAL CLK PWM
 EST();
 //Progrma principal// 
@@ -126,6 +168,9 @@ void lectura(){
     //ahora estoy en la rama general se supone
 }
 
-void PID(){
-    
+
+
+void Trigger(){
+    while (GO==0){
+    }
 }
