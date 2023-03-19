@@ -2056,6 +2056,11 @@ m=0;
 }
 }
 
+trigger(){
+while(PORTAbits.RA0==0){
+}
+}
+
 void inicia(){
 
 
@@ -2067,7 +2072,7 @@ INTCONbits.INTE = 1;
 
 OPTION_REGbits.INTEDG = 1;
 
-# 227
+# 232
 TRISA=0b001111;
 TRISB=0b00000011;
 TRISC=0b10010000;
@@ -2093,14 +2098,15 @@ void main(void) {
 
 inicia();
 PWM_ST();
-PWM2_Duty(300);
-PWM1_Duty(300);
+trigger();
 while(1){
 motores(300,400);
 _delay((unsigned long)((3000)*(4000000/4000.0)));
 motores(-500,600);
 _delay((unsigned long)((3000)*(4000000/4000.0)));
 motores(1000,-1000);
+_delay((unsigned long)((3000)*(4000000/4000.0)));
+motores(50,50);
 _delay((unsigned long)((3000)*(4000000/4000.0)));
 }
 return;

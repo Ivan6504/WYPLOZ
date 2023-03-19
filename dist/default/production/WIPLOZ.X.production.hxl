@@ -10,12 +10,12 @@
  Intel Hex-file ranges:
   0h - 5h		(dist/default/production\WIPLOZ.X.production.hex)
   8h - FFBh		(dist/default/production\WIPLOZ.X.production.hex)
-  1A94h - 1FFFh		(dist/default/production\WIPLOZ.X.production.hex)
+  1A6Eh - 1FFFh		(dist/default/production\WIPLOZ.X.production.hex)
   4000h - 4007h		(dist/default/production\WIPLOZ.X.production.hex)
   400Eh - 400Fh		(dist/default/production\WIPLOZ.X.production.hex)
  Unused ranges:
   6h - 7h
-  FFCh - 1A93h
+  FFCh - 1A6Dh
   2000h - 3FFFh
   4008h - 400Dh
 
@@ -283,7 +283,10 @@
 00000FE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000FF0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- --
 ----------------------------------------------------------
-00001A90 | -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001A60 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1
+00001A70 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001A80 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001A90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001AA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001AB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001AC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

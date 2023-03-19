@@ -209,6 +209,11 @@ else{
 }
 }
 
+trigger(){
+    while(GO==0){       
+    }
+}
+
 void inicia(){
     
  //CONFIGURACION DE LAS INTERRUPCIONES//
@@ -249,13 +254,13 @@ void main(void) {
     
 inicia();                      //RUTINA QUE INICIA EL PIC 
 PWM_ST();                      //SUBRUTINA QUE INICIALIZA EL PWM
+trigger();                     //espera el arrancador
+EST();
 while(1){
-motores(300,400);
-__delay_ms(3000);
-motores(-500,600);
-__delay_ms(3000);
-motores(1000,-1000);
-__delay_ms(3000);
+    Frenos()
+    Lectura();
+    PID();
+    //Lee_Linea()       //lee los sensores de linea que no tienen interrupcion y hace los mov necesarios
 }
 return;
 

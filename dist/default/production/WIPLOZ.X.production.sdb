@@ -46,8 +46,10 @@
 "122
 [v _external external `II(v  1 e 1 0 ]
 "212
+[v _trigger trigger `(i  1 e 2 0 ]
+"217
 [v _inicia inicia `(v  1 e 1 0 ]
-"248
+"253
 [v _main main `(v  1 e 1 0 ]
 "167 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f877a.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -207,10 +209,15 @@
 [v _derivativo derivativo `i  1 e 2 0 ]
 "91
 [v _last_prop last_prop `i  1 e 2 0 ]
-"248
+"253
 [v _main main `(v  1 e 1 0 ]
 {
-"264
+"270
+} 0
+"212
+[v _trigger trigger `(i  1 e 2 0 ]
+{
+"215
 } 0
 "95
 [v _motores motores `(v  1 e 1 0 ]
@@ -219,10 +226,10 @@
 [v motores@VD VD `i  1 p 2 16 ]
 "119
 } 0
-"212
+"217
 [v _inicia inicia `(v  1 e 1 0 ]
 {
-"246
+"251
 } 0
 "100 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\PWM.c
 [v _PWM_ST PWM_ST `(v  1 e 1 0 ]
@@ -291,17 +298,17 @@
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S595 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S597 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S600 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S603 . 4 `l 1 i 4 0 `d 1 f 4 0 `S595 1 fAsBytes 4 0 `S600 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S603  1 a 4 73 ]
+[s S602 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S605 . 4 `l 1 i 4 0 `d 1 f 4 0 `S597 1 fAsBytes 4 0 `S602 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S605  1 a 4 73 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 68 ]
-[s S672 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S674 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S675 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S672 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S675  1 a 2 77 ]
+[u S677 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S674 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S677  1 a 2 77 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 72 ]
 "11
