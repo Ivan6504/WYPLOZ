@@ -51,10 +51,10 @@
 #define READY PORTBbits.RB1 
 
 //Motores
-#define ML1 PORTBbits.RB2 
-#define ML2 PORTBbits.RB3 
-#define MR1 PORTBbits.RB4 
-#define MR2 PORTBbits.RB5 
+#define MI1 PORTBbits.RB2 
+#define MI2 PORTBbits.RB3 
+#define MD1 PORTBbits.RB4 
+#define MD2 PORTBbits.RB5 
 #define stby PORTCbits.RC0 
 #define PWML PORTCbits.RC1
 #define PWMR PORTCbits.RC2 
@@ -64,6 +64,30 @@
 
 //------------Var Globales-------------
 unsigned int y=0;
+int sensoresP[5];
+long int sumap, suma, pos, poslast, position;
+//Constantes
+float KP=0.24;//constante proporcional   
+float KD=4.628;//constante derivativa
+float KI=0.0025;//constante integral
+int vel=100;//VELOCIDAD MÁXIMA DEL ROBOT MÁXIMA 255
+int veladelante=175;//VELOCIDAD DEL FRENO DIRECCIÓN ADELANTE
+int velatras=85;//VELOCIDAD DEL FRENO DIRECCIÓN ATRÁS
+/// datos para la integral
+int error1=0;
+int error2=0;
+int error3=0;
+int error4=0;
+int error5=0;
+int error6=0;
+
+//Var PID
+int proporcional=0;
+int integral=0;
+int derivativo=0;
+int diferencial=0;
+int last_prop;
+int setpoint=250;
 
 //----------Subrutina de I EXT-------------
 void __interrupt(low_priority) external(){          
@@ -136,6 +160,7 @@ Trigger();                     //Subrutina que espera el arrancador
 //se ejecuta en loop hasta apagarse
 while(1){
 Lectura();                     //Lee el estado de los sensores de posicion
+Frenos();
 PID();                         //Aplica control PID
 CorrecionPID();                   //Aplica la correccion a los motores
 Lee_Linea();                      //lee el estado de los otros sensores de linea sin interrupcion y aplica la correcion
@@ -144,15 +169,80 @@ Lee_Linea();                      //lee el estado de los otros sensores de linea
 }
 
 void lectura(){
-    //prueba probando el git
+    sensoresP[0]=SLL;
+    sensoresP[1]=SL;
+    sensoresP[2]=SC;
+    sensoresP[3]=SR;
+    sensoresP[4]=SRR;
     
+    sumap=(400*sensoresP[0]+300*sensoresP[1]+200*sensoresP[3]+100*sensoresP[3]+0*sensoresP[4]);
+    suma=(sensoresP[0]+sensoresP[1]+sensoresP[3]+sensoresP[3]+sensoresP[4]);
+    pos=(sumap/suma);
+    
+    if(poslast<=200 && pos==-1){
+    pos=0;
+    }
+    if(poslast>=500 && pos==-1){
+    pos=700;
+    }
+    poslast=pos;
+    return pos;
 }
 
 void PID(){
+  proporcional=pos-setpoint;
+  derivativo=proporcional-last_prop;
+  integral=error1+error2+error3+error4+error5+error6;
+  last_prop=proporcional;
+  error6=error5;
+  error5=error4;
+  error4=error3;
+  error3=error2;
+  error2=error1;
+  error1=proporcional;
+  int diferencial=(proporcional*KP) + (derivativo*KD) + (integral*KI);
+  if(diferencial > vel) diferencial=vel;
+  else if(diferencial < -vel) diferencial=-vel;
+  (diferencial < 0)?
+  motores(vel, vel+diferencial):motores(vel-diferencial, vel);
+    
     
 }
 
+void motores(int VI, int VD){
+   //Motor izquierdo
+  if(VI>=0){
+    MI1 = 1;
+    MI2 = 0;
+  }
+  else{
+    MI1 = 0;
+    MI2 = 1;
+    VI=VI*(-1);
+  }
+  PWM1_Duty(VD);
+  
+   //motor derecho
+  if(VD>=0){
+    MD1 = 1;
+    MD2 = 0;
+  }
+  else{
+    MD1 = 0;
+    MD2 = 1;
+    VD=VD*(-1);
+  }
+   PWM2_Duty(VI);
+}
 
+void Frenos(){
+  if(pos<=50){
+    motores(veladelante, -velatras);
+  }
+  if(pos>=350){
+    motores(-velatras, veladelante);
+  }
+}
 
 
 
@@ -162,6 +252,7 @@ void Trigger(){
 }
 
 void Lectura(){
+    
     
 }
 
