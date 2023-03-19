@@ -162,13 +162,12 @@ while(1){
 Lectura();                     //Lee el estado de los sensores de posicion
 Frenos();
 PID();                         //Aplica control PID
-CorrecionPID();                   //Aplica la correccion a los motores
 Lee_Linea();                      //lee el estado de los otros sensores de linea sin interrupcion y aplica la correcion
 }
 
 }
 
-void lectura(){
+void Lectura(){
     sensoresP[0]=SLL;
     sensoresP[1]=SL;
     sensoresP[2]=SC;
@@ -251,18 +250,7 @@ void Trigger(){
     }
 }
 
-void Lectura(){
-    
-    
-}
 
-void PID(){
-    
-}
-
-void CorrecionPID(){
-    
-}
 
 void Lee_Linea(){
     
