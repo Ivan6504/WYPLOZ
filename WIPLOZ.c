@@ -80,6 +80,7 @@ int error3=0;
 int error4=0;
 int error5=0;
 int error6=0;
+int m=0;
 
 //Var PID
 int proporcional=0;
