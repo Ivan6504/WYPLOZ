@@ -123,7 +123,7 @@ EST();
 
 void lectura(){
     //prueba probando el git
-    
+    //ahora estoy en la rama general se supone
 }
 
 void PID(){
