@@ -84,10 +84,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "31 PWM.h
 [v _PWM_ST `(v ~T0 @X0 0 ef ]
-[v F38 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\builtins.h
-[v __delay `JF38 ~T0 @X0 0 e ]
-[p i __delay ]
 "13 WIPLOZ.c
 [p x FOSC=XT ]
 "14
@@ -1704,144 +1700,107 @@ Version 3.2 HI-TECH Software Intermediate Code
 "210
 [e :UE 118 ]
 }
-"212
-[v _trigger `(i ~T0 @X0 1 ef ]
-{
-[; ;WIPLOZ.c: 212: trigger(){
-[e :U _trigger ]
-[f ]
-[; ;WIPLOZ.c: 213: while(PORTAbits.RA0==0){
-"213
-[e $U 126  ]
-[e :U 127 ]
-{
 "214
-}
-[e :U 126 ]
-"213
-[e $ == -> . . _PORTAbits 0 0 `i -> 0 `i 127  ]
-[e :U 128 ]
-[; ;WIPLOZ.c: 214: }
-[; ;WIPLOZ.c: 215: }
-"215
-[e :UE 125 ]
-}
-"217
 [v _inicia `(v ~T0 @X0 1 ef ]
 {
-[; ;WIPLOZ.c: 217: void inicia(){
+[; ;WIPLOZ.c: 214: void inicia(){
 [e :U _inicia ]
 [f ]
-[; ;WIPLOZ.c: 220: INTCONbits.GIE = 1;
-"220
+[; ;WIPLOZ.c: 217: INTCONbits.GIE = 1;
+"217
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;WIPLOZ.c: 221: INTCONbits.PEIE = 1;
-"221
+[; ;WIPLOZ.c: 218: INTCONbits.PEIE = 1;
+"218
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-[; ;WIPLOZ.c: 222: INTCONbits.INTE = 1;
-"222
+[; ;WIPLOZ.c: 219: INTCONbits.INTE = 1;
+"219
 [e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
-[; ;WIPLOZ.c: 226: OPTION_REGbits.INTEDG = 1;
-"226
+[; ;WIPLOZ.c: 223: OPTION_REGbits.INTEDG = 1;
+"223
 [e = . . _OPTION_REGbits 0 4 -> -> 1 `i `uc ]
-[; ;WIPLOZ.c: 232: TRISA=0b001111;
-"232
+[; ;WIPLOZ.c: 229: TRISA=0b001111;
+"229
 [e = _TRISA -> -> 15 `i `uc ]
-[; ;WIPLOZ.c: 233: TRISB=0b00000011;
-"233
+[; ;WIPLOZ.c: 230: TRISB=0b00000011;
+"230
 [e = _TRISB -> -> 3 `i `uc ]
-[; ;WIPLOZ.c: 234: TRISC=0b10010000;
-"234
+[; ;WIPLOZ.c: 231: TRISC=0b10010000;
+"231
 [e = _TRISC -> -> 144 `i `uc ]
-[; ;WIPLOZ.c: 235: TRISD=0b11111111;
-"235
+[; ;WIPLOZ.c: 232: TRISD=0b11111111;
+"232
 [e = _TRISD -> -> 255 `i `uc ]
-[; ;WIPLOZ.c: 236: TRISE=0b000;
-"236
+[; ;WIPLOZ.c: 233: TRISE=0b000;
+"233
 [e = _TRISE -> -> 0 `i `uc ]
-[; ;WIPLOZ.c: 239: ADCON1= 0x06;
-"239
+[; ;WIPLOZ.c: 236: ADCON1= 0x06;
+"236
 [e = _ADCON1 -> -> 6 `i `uc ]
-[; ;WIPLOZ.c: 241: PORTA=0b000000;
-"241
+[; ;WIPLOZ.c: 238: PORTA=0b000000;
+"238
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;WIPLOZ.c: 242: PORTB=0x00;
-"242
+[; ;WIPLOZ.c: 239: PORTB=0x00;
+"239
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;WIPLOZ.c: 243: PORTC=0x00;
-"243
+[; ;WIPLOZ.c: 240: PORTC=0x00;
+"240
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;WIPLOZ.c: 244: PORTD=0x00;
-"244
+[; ;WIPLOZ.c: 241: PORTD=0x00;
+"241
 [e = _PORTD -> -> 0 `i `uc ]
-[; ;WIPLOZ.c: 245: PORTE=0b000;
-"245
+[; ;WIPLOZ.c: 242: PORTE=0b000;
+"242
 [e = _PORTE -> -> 0 `i `uc ]
-[; ;WIPLOZ.c: 248: PORTCbits.RC0=1;
-"248
+[; ;WIPLOZ.c: 245: PORTCbits.RC0=1;
+"245
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-[; ;WIPLOZ.c: 250: return;
-"250
-[e $UE 129  ]
-[; ;WIPLOZ.c: 251: }
-"251
-[e :UE 129 ]
+[; ;WIPLOZ.c: 247: return;
+"247
+[e $UE 125  ]
+[; ;WIPLOZ.c: 248: }
+"248
+[e :UE 125 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"253
+"250
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;WIPLOZ.c: 253: void main(void) {
+[; ;WIPLOZ.c: 250: void main(void) {
 [e :U _main ]
 [f ]
-[; ;WIPLOZ.c: 255: inicia();
-"255
+[; ;WIPLOZ.c: 252: inicia();
+"252
 [e ( _inicia ..  ]
-[; ;WIPLOZ.c: 256: PWM_ST();
-"256
+[; ;WIPLOZ.c: 253: PWM_ST();
+"253
 [e ( _PWM_ST ..  ]
-[; ;WIPLOZ.c: 257: trigger();
-"257
-[e ( _trigger ..  ]
-[; ;WIPLOZ.c: 258: while(1){
-"258
-[e :U 132 ]
+[; ;WIPLOZ.c: 254: Trigger();
+"254
+[e ( _Trigger ..  ]
+[; ;WIPLOZ.c: 255: EST();
+"255
+[e ( _EST ..  ]
+[; ;WIPLOZ.c: 256: while(1){
+"256
+[e :U 128 ]
 {
-[; ;WIPLOZ.c: 259: motores(300,400);
-"259
-[e ( _motores (2 , -> 300 `i -> 400 `i ]
-[; ;WIPLOZ.c: 260: _delay((unsigned long)((3000)*(4000000/4000.0)));
-"260
-[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;WIPLOZ.c: 261: motores(-500,600);
-"261
-[e ( _motores (2 , -U -> 500 `i -> 600 `i ]
-[; ;WIPLOZ.c: 262: _delay((unsigned long)((3000)*(4000000/4000.0)));
-"262
-[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;WIPLOZ.c: 263: motores(1000,-1000);
-"263
-[e ( _motores (2 , -> 1000 `i -U -> 1000 `i ]
-[; ;WIPLOZ.c: 264: _delay((unsigned long)((3000)*(4000000/4000.0)));
-"264
-[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;WIPLOZ.c: 265: motores(50,50);
-"265
-[e ( _motores (2 , -> 50 `i -> 50 `i ]
-[; ;WIPLOZ.c: 266: _delay((unsigned long)((3000)*(4000000/4000.0)));
-"266
-[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"267
-}
-[e :U 131 ]
+[; ;WIPLOZ.c: 258: Lectura();
 "258
-[e $U 132  ]
-[e :U 133 ]
-[; ;WIPLOZ.c: 267: }
-[; ;WIPLOZ.c: 268: return;
-"268
-[e $UE 130  ]
-[; ;WIPLOZ.c: 270: }
-"270
-[e :UE 130 ]
+[e ( _Lectura ..  ]
+[; ;WIPLOZ.c: 259: PID();
+"259
+[e ( _PID ..  ]
+"261
+}
+[e :U 127 ]
+"256
+[e $U 128  ]
+[e :U 129 ]
+[; ;WIPLOZ.c: 261: }
+[; ;WIPLOZ.c: 262: return;
+"262
+[e $UE 126  ]
+[; ;WIPLOZ.c: 264: }
+"264
+[e :UE 126 ]
 }

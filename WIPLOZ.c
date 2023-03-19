@@ -209,10 +209,7 @@ else{
 }
 }
 
-trigger(){
-    while(GO==0){       
-    }
-}
+
 
 void inicia(){
     
@@ -254,10 +251,10 @@ void main(void) {
     
 inicia();                      //RUTINA QUE INICIA EL PIC 
 PWM_ST();                      //SUBRUTINA QUE INICIALIZA EL PWM
-trigger();                     //espera el arrancador
+Trigger();                     //espera el arrancador
 EST();
 while(1){
-    Frenos()
+  //  Frenos()
     Lectura();
     PID();
     //Lee_Linea()       //lee los sensores de linea que no tienen interrupcion y hace los mov necesarios

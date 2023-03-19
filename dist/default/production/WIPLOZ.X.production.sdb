@@ -45,11 +45,17 @@
 [v _motores motores `(v  1 e 1 0 ]
 "122
 [v _external external `II(v  1 e 1 0 ]
-"212
-[v _trigger trigger `(i  1 e 2 0 ]
-"217
+"133
+[v _Lectura Lectura `(i  1 e 2 0 ]
+"154
+[v _PID PID `(v  1 e 1 0 ]
+"185
+[v _Trigger Trigger `(v  1 e 1 0 ]
+"196
+[v _EST EST `(v  1 e 1 0 ]
+"214
 [v _inicia inicia `(v  1 e 1 0 ]
-"253
+"250
 [v _main main `(v  1 e 1 0 ]
 "167 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f877a.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -209,27 +215,20 @@
 [v _derivativo derivativo `i  1 e 2 0 ]
 "91
 [v _last_prop last_prop `i  1 e 2 0 ]
-"253
+"250
 [v _main main `(v  1 e 1 0 ]
 {
-"270
+"264
 } 0
-"212
-[v _trigger trigger `(i  1 e 2 0 ]
-{
-"215
-} 0
-"95
-[v _motores motores `(v  1 e 1 0 ]
-{
-[v motores@VI VI `i  1 p 2 14 ]
-[v motores@VD VD `i  1 p 2 16 ]
-"119
-} 0
-"217
+"214
 [v _inicia inicia `(v  1 e 1 0 ]
 {
-"251
+"248
+} 0
+"185
+[v _Trigger Trigger `(v  1 e 1 0 ]
+{
+"188
 } 0
 "100 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\PWM.c
 [v _PWM_ST PWM_ST `(v  1 e 1 0 ]
@@ -247,12 +246,6 @@
 [v PWM2_Init@freq freq `l  1 p 4 7 ]
 "35
 } 0
-"47
-[v _PWM2_Duty PWM2_Duty `(i  1 e 2 0 ]
-{
-[v PWM2_Duty@duty duty `ui  1 p 2 10 ]
-"54
-} 0
 "56
 [v _PWM1_Start PWM1_Start `(v  1 e 1 0 ]
 {
@@ -264,10 +257,30 @@
 [v PWM1_Init@freq freq `l  1 p 4 7 ]
 "29
 } 0
+"154 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
+[v _PID PID `(v  1 e 1 0 ]
+{
+"164
+[v PID@diferencial diferencial `i  1 a 2 4 ]
+"172
+} 0
+"95
+[v _motores motores `(v  1 e 1 0 ]
+{
+[v motores@VI VI `i  1 p 2 34 ]
+[v motores@VD VD `i  1 p 2 36 ]
+"119
+} 0
+"47 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\PWM.c
+[v _PWM2_Duty PWM2_Duty `(i  1 e 2 0 ]
+{
+[v PWM2_Duty@duty duty `ui  1 p 2 30 ]
+"54
+} 0
 "37
 [v _PWM1_Duty PWM1_Duty `(i  1 e 2 0 ]
 {
-[v PWM1_Duty@duty duty `ui  1 p 2 10 ]
+[v PWM1_Duty@duty duty `ui  1 p 2 30 ]
 "45
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\xxtofl.c
@@ -289,26 +302,26 @@
 [v ___fltol __fltol `(l  1 e 4 0 ]
 {
 "45
-[v ___fltol@exp1 exp1 `uc  1 a 1 9 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 8 ]
+[v ___fltol@exp1 exp1 `uc  1 a 1 29 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 28 ]
 "43
-[v ___fltol@f1 f1 `d  1 p 4 0 ]
+[v ___fltol@f1 f1 `d  1 p 4 20 ]
 "70
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S597 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S593 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S602 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S605 . 4 `l 1 i 4 0 `d 1 f 4 0 `S597 1 fAsBytes 4 0 `S602 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S605  1 a 4 73 ]
+[s S598 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S601 . 4 `l 1 i 4 0 `d 1 f 4 0 `S593 1 fAsBytes 4 0 `S598 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S601  1 a 4 73 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 68 ]
-[s S674 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S670 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S677 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S674 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S677  1 a 2 77 ]
+[u S673 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S670 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S673  1 a 2 77 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 72 ]
 "11
@@ -359,6 +372,37 @@
 {
 "24
 } 0
+"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+{
+"17
+[v ___fladd@grs grs `uc  1 a 1 19 ]
+"15
+[v ___fladd@bexp bexp `uc  1 a 1 18 ]
+"16
+[v ___fladd@aexp aexp `uc  1 a 1 17 ]
+"13
+[v ___fladd@signs signs `uc  1 a 1 16 ]
+"10
+[v ___fladd@b b `d  1 p 4 0 ]
+[v ___fladd@a a `d  1 p 4 4 ]
+"237
+} 0
+"133 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
+[v _Lectura Lectura `(i  1 e 2 0 ]
+{
+"152
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 6 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 2 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 4 ]
+"53
+} 0
 "5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
 {
@@ -372,7 +416,12 @@
 [v ___aldiv@dividend dividend `l  1 p 4 6 ]
 "41
 } 0
-"122 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
+"196 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
+[v _EST EST `(v  1 e 1 0 ]
+{
+"210
+} 0
+"122
 [v _external external `II(v  1 e 1 0 ]
 {
 "131
