@@ -1941,7 +1941,6 @@ int diferencial=0;
 int last_prop;
 int setpoint=250;
 
-
 void motores(int VI, int VD){
 
 if(VI>=0){
@@ -1969,13 +1968,21 @@ PWM2_Duty(VD);
 }
 
 
-void __interrupt(low_priority) external(){
+void __interrupt external(){
 if(INTCONbits.INTF == 1){
 
-# 129
+_delay((unsigned long)((100)*(4000000/4000.0)));
+if (PORTEbits.RE2 == 0){
+PORTEbits.RE2 = 1;
+}else
+PORTEbits.RE2 = 0;
+
 INTCONbits.INTF = 0;
 }
 }
+
+
+
 
 int Lectura(){
 sensoresP[0]=PORTDbits.RD4;
@@ -2064,12 +2071,13 @@ void inicia(){
 INTCONbits.GIE = 1;
 INTCONbits.PEIE = 1;
 INTCONbits.INTE = 1;
+INTCONbits.INTF = 0;
 
 
 
 OPTION_REGbits.INTEDG = 1;
 
-# 229
+# 234
 TRISA=0b001111;
 TRISB=0b00000011;
 TRISC=0b10010000;
@@ -2094,13 +2102,14 @@ return;
 void main(void) {
 
 inicia();
-PWM_ST();
+
 Trigger();
 EST();
+PORTEbits.RE2 = 1;
 while(1){
 
-Lectura();
-PID();
+
+
 
 }
 return;

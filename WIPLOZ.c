@@ -91,7 +91,6 @@ int diferencial=0;
 int last_prop;
 int setpoint=250;
 
-
 void motores(int VI, int VD){
   //Motor izquierdo
   if(VI>=0){
@@ -119,16 +118,21 @@ void motores(int VI, int VD){
 }
 
 //----------Subrutina de I EXT-------------
-void __interrupt(low_priority) external(){          
+void __interrupt external(){
  if(INTCONbits.INTF == 1){                          //COMPRUEBA SI SE HA RECIBIDO UNA INTERRUPCION 
   //INSERTAR LO QUE HAY QUE HACER 
-     
-     
-  
+     __delay_ms(100);
+     if (PORTEbits.RE2 == 0){
+         PORTEbits.RE2 = 1;
+     }else
+         PORTEbits.RE2 = 0;
   ///////////////////////////////
   INTCONbits.INTF = 0;                               //LIMPIA LA BANDERA 
  }   
 }
+
+
+
 
 int Lectura(){
     sensoresP[0]=SLL;
@@ -217,6 +221,7 @@ void inicia(){
  INTCONbits.GIE    = 1;          //HABILITA LAS INTERRUPCIONES GLOBALES
  INTCONbits.PEIE   = 1;          //HABILITA LAS INTERRUPCIONES PERIFERICAS
  INTCONbits.INTE   = 1;          //HABILITA LAS INTERRUPCIONES EXTERNAS 
+ INTCONbits.INTF = 0;     //limpio interrupcion
  //FIN DE LAS INTERRUPCIONES//
  
 //CONFIGURACION DEL REGISTRO OPTION REG//
@@ -250,13 +255,14 @@ return;
 void main(void) {
     
 inicia();                      //RUTINA QUE INICIA EL PIC 
-PWM_ST();                      //SUBRUTINA QUE INICIALIZA EL PWM
+//PWM_ST();                      //SUBRUTINA QUE INICIALIZA EL PWM
 Trigger();                     //espera el arrancador
-EST();
+EST();   
+PORTEbits.RE2 = 1;
 while(1){
   //  Frenos()
-    Lectura();
-    PID();
+ //   Lectura();
+ //   PID();
     //Lee_Linea()       //lee los sensores de linea que no tienen interrupcion y hace los mov necesarios
 }
 return;
