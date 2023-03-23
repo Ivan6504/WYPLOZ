@@ -1939,7 +1939,7 @@ int integral=0;
 int derivativo=0;
 int diferencial=0;
 int last_prop;
-int setpoint=250;
+int setpoint=200;
 
 void motores(int VI, int VD){
 
@@ -2037,14 +2037,6 @@ motores(vel, vel+diferencial):motores(vel-diferencial, vel);
 }
 
 
-
-void Trigger(){
-while (PORTAbits.RA0==0){
-}
-}
-
-
-
 void Lee_Linea(){
 
 }
@@ -2059,6 +2051,7 @@ m=2;
 }
 else if(PORTDbits.RD7==1 && PORTDbits.RD6==1){
 m=3;
+
 }
 else{
 m=0;
@@ -2088,7 +2081,7 @@ INTCONbits.INTF = 0;
 
 OPTION_REGbits.INTEDG = 1;
 
-# 245
+# 238
 TRISA=0b001111;
 TRISB=0b00000011;
 TRISC=0b10010000;
@@ -2114,14 +2107,16 @@ void main(void) {
 
 inicia();
 PWM_ST();
-Trigger();
-EST();
-PORTEbits.RE2 = 1;
 while(1){
+EST();
+while(PORTAbits.RA0==1){
 Frenos();
 Lectura();
 PID();
 
+
+}
+motores(0,0);
 }
 return;
 

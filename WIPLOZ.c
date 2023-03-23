@@ -89,7 +89,7 @@ int integral=0;
 int derivativo=0;
 int diferencial=0;
 int last_prop;
-int setpoint=250;
+int setpoint=200;
 
 void motores(int VI, int VD){
   //Motor izquierdo
@@ -187,14 +187,6 @@ void PID(){
 }
 
 
-
-void Trigger(){
-    while (GO==0){
-    }
-}
-
-
-
 void Lee_Linea(){
     
 }
@@ -208,7 +200,8 @@ else if(MSB==1 && LSB==0){
   m=2;  //MODO 2
 }
 else if(MSB==1 && LSB==1){
-  m=3;  //MODO 3
+  m=3;  //MODO 3   ---- EL CAZADOR ----:   avanza lento hasta que encuentra al oponente
+  //que vaya avanzando y cuando detecto que un sensor detecto algo ya haga su chamba del pid
 }
 else{
   m=0;  //MODO 0
@@ -267,14 +260,16 @@ void main(void) {
     
 inicia();                      //RUTINA QUE INICIA EL PIC 
 PWM_ST();                      //SUBRUTINA QUE INICIALIZA EL PWM
-Trigger();                     //espera el arrancador
-EST();   
-PORTEbits.RE2 = 1;
 while(1){
-    Frenos();
-    Lectura();
-    PID();
+EST();                         //lee la estrategia
+    while(GO==1){
+        Frenos();
+        Lectura();
+        PID();
     //Lee_Linea();       //lee los sensores de linea que no tienen interrupcion y hace los mov necesarios
+    //leapagar();;
+    }
+    motores(0,0);    
 }
 return;
 

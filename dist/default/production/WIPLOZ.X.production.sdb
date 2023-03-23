@@ -56,19 +56,17 @@
 [v _Lectura Lectura `(i  1 e 2 0 ]
 "169
 [v _PID PID `(v  1 e 1 0 ]
-"191
-[v _Trigger Trigger `(v  1 e 1 0 ]
-"202
+"194
 [v _EST EST `(v  1 e 1 0 ]
-"218
+"211
 [v _Frenos Frenos `(v  1 e 1 0 ]
-"229
+"222
 [v _inicia inicia `(v  1 e 1 0 ]
-"266
+"259
 [v _main main `(v  1 e 1 0 ]
 "167 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f877a.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
-[s S133 . 1 `uc 1 RA0 1 0 :1:0 
+[s S195 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -76,8 +74,8 @@
 `uc 1 RA5 1 0 :1:5 
 ]
 "182
-[u S140 . 1 `S133 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES140  1 e 1 @5 ]
+[u S202 . 1 `S195 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES202  1 e 1 @5 ]
 "217
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 [s S22 . 1 `uc 1 RB0 1 0 :1:0 
@@ -94,7 +92,7 @@
 [v _PORTBbits PORTBbits `VES31  1 e 1 @6 ]
 "279
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
-[s S187 . 1 `uc 1 RC0 1 0 :1:0 
+[s S170 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -104,8 +102,8 @@
 `uc 1 RC7 1 0 :1:7 
 ]
 "296
-[u S196 . 1 `S187 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES196  1 e 1 @7 ]
+[u S179 . 1 `S170 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES179  1 e 1 @7 ]
 "341
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 [s S112 . 1 `uc 1 RD0 1 0 :1:0 
@@ -150,7 +148,7 @@
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @21 ]
 "1081
 [v _CCPR2L CCPR2L `VEuc  1 e 1 @27 ]
-[s S150 . 1 `uc 1 PS 1 0 :3:0 
+[s S133 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -158,12 +156,12 @@
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "1276
-[s S157 . 1 `uc 1 PS0 1 0 :1:0 
+[s S140 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 ]
-[u S161 . 1 `S150 1 . 1 0 `S157 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES161  1 e 1 @129 ]
+[u S144 . 1 `S133 1 . 1 0 `S140 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES144  1 e 1 @129 ]
 "1326
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1376
@@ -233,20 +231,15 @@
 [v _derivativo derivativo `i  1 e 2 0 ]
 "91
 [v _last_prop last_prop `i  1 e 2 0 ]
-"266
+"259
 [v _main main `(v  1 e 1 0 ]
 {
-"281
+"276
 } 0
-"229
+"222
 [v _inicia inicia `(v  1 e 1 0 ]
 {
-"264
-} 0
-"191
-[v _Trigger Trigger `(v  1 e 1 0 ]
-{
-"194
+"257
 } 0
 "100 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\PWM.c
 [v _PWM_ST PWM_ST `(v  1 e 1 0 ]
@@ -313,10 +306,10 @@
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
 "53
 } 0
-"218 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
+"211 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
 [v _Frenos Frenos `(v  1 e 1 0 ]
 {
-"225
+"218
 } 0
 "94
 [v _motores motores `(v  1 e 1 0 ]
@@ -365,17 +358,17 @@
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S626 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S624 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S631 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S634 . 4 `l 1 i 4 0 `d 1 f 4 0 `S626 1 fAsBytes 4 0 `S631 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S634  1 a 4 12 ]
+[s S629 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S632 . 4 `l 1 i 4 0 `d 1 f 4 0 `S624 1 fAsBytes 4 0 `S629 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S632  1 a 4 12 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 6 ]
-[s S703 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S701 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S706 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S703 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S706  1 a 2 16 ]
+[u S704 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S701 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S704  1 a 2 16 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 11 ]
 "11
@@ -449,10 +442,10 @@
 [v ___aldiv@dividend dividend `l  1 p 4 17 ]
 "41
 } 0
-"202 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
+"194 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
 [v _EST EST `(v  1 e 1 0 ]
 {
-"216
+"209
 } 0
 "121
 [v _external external `II(v  1 e 1 0 ]
@@ -491,17 +484,17 @@
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcmul.c
 [v i1___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S626 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S624 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S631 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S634 . 4 `l 1 i 4 0 `d 1 f 4 0 `S626 1 fAsBytes 4 0 `S631 1 fAsWords 4 0 ]
-[v i1___flmul@prod prod `S634  1 a 4 50 ]
+[s S629 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S632 . 4 `l 1 i 4 0 `d 1 f 4 0 `S624 1 fAsBytes 4 0 `S629 1 fAsWords 4 0 ]
+[v i1___flmul@prod prod `S632  1 a 4 50 ]
 "12
 [v i1___flmul@grs grs `ul  1 a 4 44 ]
-[s S703 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S701 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S706 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S703 1 nAsBytes 2 0 ]
-[v i1___flmul@temp temp `S706  1 a 2 54 ]
+[u S704 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S701 1 nAsBytes 2 0 ]
+[v i1___flmul@temp temp `S704  1 a 2 54 ]
 "10
 [v i1___flmul@bexp bexp `uc  1 a 1 49 ]
 "11
