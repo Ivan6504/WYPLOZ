@@ -5,28 +5,35 @@
 [d frameptr 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
+[v i1___aldiv __aldiv `(l  1 e 4 0 ]
 "43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
+[v i1___fltol __fltol `(l  1 e 4 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
+[v i1___flmul __flmul `(d  1 e 4 0 ]
 "15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
+[v i1___lmul __lmul `(ul  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+[v i1__Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+[v i1___xxtofl __xxtofl `(d  1 e 4 0 ]
 "6 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "20 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\PWM.c
 [v _PWM_Max_Duty PWM_Max_Duty `(i  1 e 2 0 ]
+[v i1_PWM_Max_Duty PWM_Max_Duty `(i  1 e 2 0 ]
 "26
 [v _PWM1_Init PWM1_Init `(i  1 e 2 0 ]
 "31
@@ -39,21 +46,29 @@
 [v _PWM1_Start PWM1_Start `(v  1 e 1 0 ]
 "78
 [v _PWM2_Start PWM2_Start `(v  1 e 1 0 ]
+"100
+[v _PWM_ST PWM_ST `(v  1 e 1 0 ]
 "94 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
 [v _motores motores `(v  1 e 1 0 ]
 "121
 [v _external external `II(v  1 e 1 0 ]
-"189
+"148
+[v _Lectura Lectura `(i  1 e 2 0 ]
+"169
+[v _PID PID `(v  1 e 1 0 ]
+"191
 [v _Trigger Trigger `(v  1 e 1 0 ]
-"200
+"202
 [v _EST EST `(v  1 e 1 0 ]
 "218
+[v _Frenos Frenos `(v  1 e 1 0 ]
+"229
 [v _inicia inicia `(v  1 e 1 0 ]
-"255
+"266
 [v _main main `(v  1 e 1 0 ]
 "167 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f877a.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
-[s S123 . 1 `uc 1 RA0 1 0 :1:0 
+[s S133 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -61,8 +76,8 @@
 `uc 1 RA5 1 0 :1:5 
 ]
 "182
-[u S130 . 1 `S123 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES130  1 e 1 @5 ]
+[u S140 . 1 `S133 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES140  1 e 1 @5 ]
 "217
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 [s S22 . 1 `uc 1 RB0 1 0 :1:0 
@@ -79,7 +94,7 @@
 [v _PORTBbits PORTBbits `VES31  1 e 1 @6 ]
 "279
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
-[s S177 . 1 `uc 1 RC0 1 0 :1:0 
+[s S187 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -89,11 +104,11 @@
 `uc 1 RC7 1 0 :1:7 
 ]
 "296
-[u S186 . 1 `S177 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES186  1 e 1 @7 ]
+[u S196 . 1 `S187 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES196  1 e 1 @7 ]
 "341
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S102 . 1 `uc 1 RD0 1 0 :1:0 
+[s S112 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -103,17 +118,17 @@
 `uc 1 RD7 1 0 :1:7 
 ]
 "358
-[u S111 . 1 `S102 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES111  1 e 1 @8 ]
+[u S121 . 1 `S112 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES121  1 e 1 @8 ]
 "403
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
-[s S91 . 1 `uc 1 RE0 1 0 :1:0 
+[s S85 . 1 `uc 1 RE0 1 0 :1:0 
 `uc 1 RE1 1 0 :1:1 
 `uc 1 RE2 1 0 :1:2 
 ]
 "415
-[u S95 . 1 `S91 1 . 1 0 ]
-[v _PORTEbits PORTEbits `VES95  1 e 1 @9 ]
+[u S89 . 1 `S85 1 . 1 0 ]
+[v _PORTEbits PORTEbits `VES89  1 e 1 @9 ]
 [s S53 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
@@ -135,7 +150,7 @@
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @21 ]
 "1081
 [v _CCPR2L CCPR2L `VEuc  1 e 1 @27 ]
-[s S140 . 1 `uc 1 PS 1 0 :3:0 
+[s S150 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -143,12 +158,12 @@
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "1276
-[s S147 . 1 `uc 1 PS0 1 0 :1:0 
+[s S157 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 ]
-[u S151 . 1 `S140 1 . 1 0 `S147 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES151  1 e 1 @129 ]
+[u S161 . 1 `S150 1 . 1 0 `S157 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES161  1 e 1 @129 ]
 "1326
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1376
@@ -185,7 +200,9 @@
 [v _TRISC1 TRISC1 `VEb  1 e 0 @1081 ]
 "2970
 [v _TRISC2 TRISC2 `VEb  1 e 0 @1082 ]
-"20 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\PWM.h
+"19 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\PWM.h
+[v _TMR2PRESCALE TMR2PRESCALE `l  1 e 4 0 ]
+"20
 [v _freq freq `l  1 e 4 0 ]
 "68 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
 [v _sensoresP sensoresP `[5]i  1 e 10 0 ]
@@ -216,28 +233,325 @@
 [v _derivativo derivativo `i  1 e 2 0 ]
 "91
 [v _last_prop last_prop `i  1 e 2 0 ]
-"255
+"266
 [v _main main `(v  1 e 1 0 ]
 {
-"270
+"281
 } 0
-"218
+"229
 [v _inicia inicia `(v  1 e 1 0 ]
 {
-"253
+"264
 } 0
-"189
+"191
 [v _Trigger Trigger `(v  1 e 1 0 ]
 {
-"192
+"194
 } 0
-"200
+"100 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\PWM.c
+[v _PWM_ST PWM_ST `(v  1 e 1 0 ]
+{
+"107
+} 0
+"78
+[v _PWM2_Start PWM2_Start `(v  1 e 1 0 ]
+{
+"93
+} 0
+"31
+[v _PWM2_Init PWM2_Init `(i  1 e 2 0 ]
+{
+[v PWM2_Init@freq freq `l  1 p 4 28 ]
+"35
+} 0
+"56
+[v _PWM1_Start PWM1_Start `(v  1 e 1 0 ]
+{
+"71
+} 0
+"26
+[v _PWM1_Init PWM1_Init `(i  1 e 2 0 ]
+{
+[v PWM1_Init@freq freq `l  1 p 4 28 ]
+"29
+} 0
+"169 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
+[v _PID PID `(v  1 e 1 0 ]
+{
+"179
+[v PID@diferencial diferencial `i  1 a 2 66 ]
+"187
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+{
+"17
+[v ___fladd@grs grs `uc  1 a 1 37 ]
+"15
+[v ___fladd@bexp bexp `uc  1 a 1 36 ]
+"16
+[v ___fladd@aexp aexp `uc  1 a 1 35 ]
+"13
+[v ___fladd@signs signs `uc  1 a 1 34 ]
+"10
+[v ___fladd@b b `d  1 p 4 18 ]
+[v ___fladd@a a `d  1 p 4 22 ]
+"237
+} 0
+"148 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
+[v _Lectura Lectura `(i  1 e 2 0 ]
+{
+"167
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"218 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
+[v _Frenos Frenos `(v  1 e 1 0 ]
+{
+"225
+} 0
+"94
+[v _motores motores `(v  1 e 1 0 ]
+{
+[v motores@VI VI `i  1 p 2 50 ]
+[v motores@VD VD `i  1 p 2 52 ]
+"118
+} 0
+"47 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\PWM.c
+[v _PWM2_Duty PWM2_Duty `(i  1 e 2 0 ]
+{
+[v PWM2_Duty@duty duty `ui  1 p 2 46 ]
+"54
+} 0
+"37
+[v _PWM1_Duty PWM1_Duty `(i  1 e 2 0 ]
+{
+[v PWM1_Duty@duty duty `ui  1 p 2 46 ]
+"45
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 40 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 39 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 30 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 38 ]
+"44
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 79 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 78 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 38 ]
+"70
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S626 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S631 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S634 . 4 `l 1 i 4 0 `d 1 f 4 0 `S626 1 fAsBytes 4 0 `S631 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S634  1 a 4 12 ]
+"12
+[v ___flmul@grs grs `ul  1 a 4 6 ]
+[s S703 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S706 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S703 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S706  1 a 2 16 ]
+"10
+[v ___flmul@bexp bexp `uc  1 a 1 11 ]
+"11
+[v ___flmul@aexp aexp `uc  1 a 1 10 ]
+"9
+[v ___flmul@sign sign `uc  1 a 1 5 ]
+"8
+[v ___flmul@b b `d  1 p 4 70 ]
+[v ___flmul@a a `d  1 p 4 74 ]
+"205
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+{
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v __Umul8_16@word_mpld word_mpld `ui  1 a 2 6 ]
+"5
+[v __Umul8_16@product product `ui  1 a 2 4 ]
+"4
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
+[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
+"60
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 64 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 57 ]
+"20
+[v ___fldiv@new_exp new_exp `i  1 a 2 62 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 69 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 68 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 61 ]
+"8
+[v ___fldiv@a a `d  1 p 4 44 ]
+[v ___fldiv@b b `d  1 p 4 48 ]
+"185
+} 0
+"20 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\PWM.c
+[v _PWM_Max_Duty PWM_Max_Duty `(i  1 e 2 0 ]
+{
+"24
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+{
+"17
+[v ___lmul@product product `ul  1 a 4 9 ]
+"15
+[v ___lmul@multiplier multiplier `ul  1 p 4 0 ]
+[v ___lmul@multiplicand multiplicand `ul  1 p 4 4 ]
+"129
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+{
+"10
+[v ___aldiv@quotient quotient `l  1 a 4 24 ]
+"11
+[v ___aldiv@sign sign `uc  1 a 1 23 ]
+[v ___aldiv@counter counter `uc  1 a 1 22 ]
+"5
+[v ___aldiv@divisor divisor `l  1 p 4 13 ]
+[v ___aldiv@dividend dividend `l  1 p 4 17 ]
+"41
+} 0
+"202 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
 [v _EST EST `(v  1 e 1 0 ]
 {
-"214
+"216
 } 0
 "121
 [v _external external `II(v  1 e 1 0 ]
 {
-"132
+"135
+[v external@duty2 duty2 `i  1 a 2 74 ]
+"125
+[v external@duty duty `i  1 a 2 72 ]
+"143
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\xxtofl.c
+[v i1___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v i1___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v i1___xxtofl@arg arg `ul  1 a 4 26 ]
+"12
+[v i1___xxtofl@exp exp `uc  1 a 1 25 ]
+"10
+[v i1___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v i1___xxtofl@val val `l  1 p 4 16 ]
+"15
+[v i1___xxtofl@sign sign `uc  1 a 1 24 ]
+"44
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\fltol.c
+[v i1___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v i1___fltol@exp1 exp1 `uc  1 a 1 65 ]
+[v i1___fltol@sign1 sign1 `uc  1 a 1 64 ]
+"43
+[v i1___fltol@f1 f1 `d  1 p 4 56 ]
+"70
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcmul.c
+[v i1___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S626 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S631 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S634 . 4 `l 1 i 4 0 `d 1 f 4 0 `S626 1 fAsBytes 4 0 `S631 1 fAsWords 4 0 ]
+[v i1___flmul@prod prod `S634  1 a 4 50 ]
+"12
+[v i1___flmul@grs grs `ul  1 a 4 44 ]
+[s S703 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S706 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S703 1 nAsBytes 2 0 ]
+[v i1___flmul@temp temp `S706  1 a 2 54 ]
+"10
+[v i1___flmul@bexp bexp `uc  1 a 1 49 ]
+"11
+[v i1___flmul@aexp aexp `uc  1 a 1 48 ]
+"9
+[v i1___flmul@sign sign `uc  1 a 1 43 ]
+"8
+[v i1___flmul@b b `d  1 p 4 30 ]
+[v i1___flmul@a a `d  1 p 4 34 ]
+"205
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8_16.c
+[v i1__Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+{
+[v i1__Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v i1__Umul8_16@word_mpld word_mpld `ui  1 a 2 6 ]
+"5
+[v i1__Umul8_16@product product `ui  1 a 2 4 ]
+"4
+[v i1__Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
+[v i1__Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
+[v i1__Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
+"60
+} 0
+"20 C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\PWM.c
+[v i1_PWM_Max_Duty PWM_Max_Duty `(i  1 e 2 0 ]
+{
+"24
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul32.c
+[v i1___lmul __lmul `(ul  1 e 4 0 ]
+{
+"17
+[v i1___lmul@product product `ul  1 a 4 9 ]
+"15
+[v i1___lmul@multiplier multiplier `ul  1 p 4 0 ]
+[v i1___lmul@multiplicand multiplicand `ul  1 p 4 4 ]
+"129
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\aldiv.c
+[v i1___aldiv __aldiv `(l  1 e 4 0 ]
+{
+"10
+[v i1___aldiv@quotient quotient `l  1 a 4 10 ]
+"11
+[v i1___aldiv@sign sign `uc  1 a 1 9 ]
+[v i1___aldiv@counter counter `uc  1 a 1 8 ]
+"5
+[v i1___aldiv@divisor divisor `l  1 p 4 0 ]
+[v i1___aldiv@dividend dividend `l  1 p 4 4 ]
+"41
 } 0

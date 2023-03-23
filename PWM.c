@@ -24,13 +24,13 @@ int PWM_Max_Duty(){
 }
 
 PWM1_Init(long freq){
-  PR2 =((_XTAL_FREQ/(freq*4*TMR2PRESCALE)) - 1);
+  PR2 =((_XTAL_FREQ/(freq*4*TMR2PRESCALE)) - 1); //=249
   freq = freq;
 }
 
 PWM2_Init(long freq){
     
-  PR2 = ((_XTAL_FREQ/(freq*4*TMR2PRESCALE)) - 1);
+  PR2 = ((_XTAL_FREQ/(freq*4*TMR2PRESCALE)) - 1); // = 249
   freq = freq;
 }
 

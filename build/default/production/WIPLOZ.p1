@@ -22,11 +22,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S17 . . . ]
 "478
 [v _INTCONbits `VS17 ~T0 @X0 0 e@11 ]
-[v F38 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\builtins.h
-[v __delay `JF38 ~T0 @X0 0 e ]
-[p i __delay ]
-"409 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f877a.h
+"409
 [s S14 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S14 . RE0 RE1 RE2 ]
 "408
@@ -34,7 +30,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S13 . . ]
 "415
 [v _PORTEbits `VS13 ~T0 @X0 0 e@9 ]
-"347
+"129 WIPLOZ.c
+[v _PWM_Max_Duty `(i ~T0 @X0 0 ef ]
+"2457 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f877a.h
+[v _CCP1X `Vb ~T0 @X0 0 e@189 ]
+"2460
+[v _CCP1Y `Vb ~T0 @X0 0 e@188 ]
+"893
+[v _CCPR1L `Vuc ~T0 @X0 0 e@21 ]
+"2481
+[v _CCP2X `Vb ~T0 @X0 0 e@237 ]
+"2484
+[v _CCP2Y `Vb ~T0 @X0 0 e@236 ]
+"1081
+[v _CCPR2L `Vuc ~T0 @X0 0 e@27 ]
+[v F38 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\builtins.h
+[v __delay `JF38 ~T0 @X0 0 e ]
+[p i __delay ]
+"347 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f877a.h
 [s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S12 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
 "346
@@ -92,6 +106,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "296
 [v _PORTCbits `VS9 ~T0 @X0 0 e@7 ]
 [p mainexit ]
+"31 PWM.h
+[v _PWM_ST `(v ~T0 @X0 0 ef ]
 "13 WIPLOZ.c
 [p x FOSC=XT ]
 "14
@@ -1452,380 +1468,405 @@ Version 3.2 HI-TECH Software Intermediate Code
 "122
 [e $ ! == -> . . _INTCONbits 0 1 `i -> 1 `i 102  ]
 {
-[; ;WIPLOZ.c: 124: _delay((unsigned long)((100)*(4000000/4000.0)));
-"124
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;WIPLOZ.c: 125: if (PORTEbits.RE2 == 0){
+[; ;WIPLOZ.c: 125: PORTEbits.RE2=~PORTEbits.RE2;
 "125
-[e $ ! == -> . . _PORTEbits 0 2 `i -> 0 `i 103  ]
-{
-[; ;WIPLOZ.c: 126: PORTEbits.RE2 = 1;
-"126
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-"127
-}
-[; ;WIPLOZ.c: 127: }else
-[e $U 104  ]
-[e :U 103 ]
-[; ;WIPLOZ.c: 128: PORTEbits.RE2 = 0;
-"128
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[e :U 104 ]
-[; ;WIPLOZ.c: 130: INTCONbits.INTF = 0;
+[e = . . _PORTEbits 0 2 -> ~ -> . . _PORTEbits 0 2 `i `uc ]
+[v _duty `i ~T0 @X0 1 a ]
+[; ;WIPLOZ.c: 129: int duty = ((float)0/1023)*PWM_Max_Duty();
+"129
+[e = _duty -> * / -> -> 0 `i `f -> -> 1023 `i `f -> ( _PWM_Max_Duty ..  `f `i ]
+[; ;WIPLOZ.c: 130: CCP1X = duty & 2;
 "130
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+[e = _CCP1X -> & _duty -> 2 `i `b ]
+[; ;WIPLOZ.c: 131: CCP1Y = duty & 1;
 "131
+[e = _CCP1Y -> & _duty -> 1 `i `b ]
+[; ;WIPLOZ.c: 132: CCPR1L = duty>>2;
+"132
+[e = _CCPR1L -> >> _duty -> 2 `i `uc ]
+"135
+[v _duty2 `i ~T0 @X0 1 a ]
+[; ;WIPLOZ.c: 135: int duty2 = ((float)0/1023)*PWM_Max_Duty();
+[e = _duty2 -> * / -> -> 0 `i `f -> -> 1023 `i `f -> ( _PWM_Max_Duty ..  `f `i ]
+[; ;WIPLOZ.c: 136: CCP2X = duty2 & 2;
+"136
+[e = _CCP2X -> & _duty2 -> 2 `i `b ]
+[; ;WIPLOZ.c: 137: CCP2Y = duty2 & 1;
+"137
+[e = _CCP2Y -> & _duty2 -> 1 `i `b ]
+[; ;WIPLOZ.c: 138: CCPR2L = duty2>>2;
+"138
+[e = _CCPR2L -> >> _duty2 -> 2 `i `uc ]
+[; ;WIPLOZ.c: 139: _delay((unsigned long)((1000)*(4000000/4000.0)));
+"139
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;WIPLOZ.c: 141: INTCONbits.INTF = 0;
+"141
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+"142
 }
 [e :U 102 ]
-[; ;WIPLOZ.c: 131: }
-[; ;WIPLOZ.c: 132: }
-"132
+[; ;WIPLOZ.c: 142: }
+[; ;WIPLOZ.c: 143: }
+"143
 [e :UE 101 ]
 }
-"137
+"148
 [v _Lectura `(i ~T0 @X0 1 ef ]
 {
-[; ;WIPLOZ.c: 137: int Lectura(){
+[; ;WIPLOZ.c: 148: int Lectura(){
 [e :U _Lectura ]
 [f ]
-[; ;WIPLOZ.c: 138: sensoresP[0]=PORTDbits.RD4;
-"138
-[e = *U + &U _sensoresP * -> -> -> 0 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux -> . . _PORTDbits 0 4 `i ]
-[; ;WIPLOZ.c: 139: sensoresP[1]=PORTDbits.RD3;
-"139
-[e = *U + &U _sensoresP * -> -> -> 1 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux -> . . _PORTDbits 0 3 `i ]
-[; ;WIPLOZ.c: 140: sensoresP[2]=PORTDbits.RD2;
-"140
-[e = *U + &U _sensoresP * -> -> -> 2 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux -> . . _PORTDbits 0 2 `i ]
-[; ;WIPLOZ.c: 141: sensoresP[3]=PORTDbits.RD1;
-"141
-[e = *U + &U _sensoresP * -> -> -> 3 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux -> . . _PORTDbits 0 1 `i ]
-[; ;WIPLOZ.c: 142: sensoresP[4]=PORTDbits.RD0;
-"142
-[e = *U + &U _sensoresP * -> -> -> 4 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux -> . . _PORTDbits 0 0 `i ]
-[; ;WIPLOZ.c: 144: sumap=(400*sensoresP[0]+300*sensoresP[1]+200*sensoresP[3]+100*sensoresP[3]+0*sensoresP[4]);
-"144
-[e = _sumap -> + + + + * -> 400 `i *U + &U _sensoresP * -> -> -> 0 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux * -> 300 `i *U + &U _sensoresP * -> -> -> 1 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux * -> 200 `i *U + &U _sensoresP * -> -> -> 3 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux * -> 100 `i *U + &U _sensoresP * -> -> -> 3 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux * -> 0 `i *U + &U _sensoresP * -> -> -> 4 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux `l ]
-[; ;WIPLOZ.c: 145: suma=(sensoresP[0]+sensoresP[1]+sensoresP[3]+sensoresP[3]+sensoresP[4]);
-"145
-[e = _suma -> + + + + *U + &U _sensoresP * -> -> -> 0 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux *U + &U _sensoresP * -> -> -> 1 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux *U + &U _sensoresP * -> -> -> 3 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux *U + &U _sensoresP * -> -> -> 3 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux *U + &U _sensoresP * -> -> -> 4 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux `l ]
-[; ;WIPLOZ.c: 146: pos=(sumap/suma);
-"146
-[e = _pos / _sumap _suma ]
-[; ;WIPLOZ.c: 148: if(poslast<=200 && pos==-1){
-"148
-[e $ ! && <= _poslast -> -> 200 `i `l == _pos -> -U -> 1 `i `l 106  ]
-{
-[; ;WIPLOZ.c: 149: pos=0;
+[; ;WIPLOZ.c: 149: sensoresP[0]=PORTDbits.RD4;
 "149
-[e = _pos -> -> 0 `i `l ]
+[e = *U + &U _sensoresP * -> -> -> 0 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux -> . . _PORTDbits 0 4 `i ]
+[; ;WIPLOZ.c: 150: sensoresP[1]=PORTDbits.RD3;
 "150
-}
-[e :U 106 ]
-[; ;WIPLOZ.c: 150: }
-[; ;WIPLOZ.c: 151: if(poslast>=500 && pos==-1){
+[e = *U + &U _sensoresP * -> -> -> 1 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux -> . . _PORTDbits 0 3 `i ]
+[; ;WIPLOZ.c: 151: sensoresP[2]=PORTDbits.RD2;
 "151
-[e $ ! && >= _poslast -> -> 500 `i `l == _pos -> -U -> 1 `i `l 107  ]
-{
-[; ;WIPLOZ.c: 152: pos=700;
+[e = *U + &U _sensoresP * -> -> -> 2 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux -> . . _PORTDbits 0 2 `i ]
+[; ;WIPLOZ.c: 152: sensoresP[3]=PORTDbits.RD1;
 "152
-[e = _pos -> -> 700 `i `l ]
+[e = *U + &U _sensoresP * -> -> -> 3 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux -> . . _PORTDbits 0 1 `i ]
+[; ;WIPLOZ.c: 153: sensoresP[4]=PORTDbits.RD0;
 "153
-}
-[e :U 107 ]
-[; ;WIPLOZ.c: 153: }
-[; ;WIPLOZ.c: 154: poslast=pos;
-"154
-[e = _poslast _pos ]
-[; ;WIPLOZ.c: 155: return pos;
+[e = *U + &U _sensoresP * -> -> -> 4 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux -> . . _PORTDbits 0 0 `i ]
+[; ;WIPLOZ.c: 155: sumap=(400*sensoresP[0]+300*sensoresP[1]+200*sensoresP[3]+100*sensoresP[3]+0*sensoresP[4]);
 "155
-[e ) -> _pos `i ]
-[e $UE 105  ]
-[; ;WIPLOZ.c: 156: }
+[e = _sumap -> + + + + * -> 400 `i *U + &U _sensoresP * -> -> -> 0 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux * -> 300 `i *U + &U _sensoresP * -> -> -> 1 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux * -> 200 `i *U + &U _sensoresP * -> -> -> 3 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux * -> 100 `i *U + &U _sensoresP * -> -> -> 3 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux * -> 0 `i *U + &U _sensoresP * -> -> -> 4 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux `l ]
+[; ;WIPLOZ.c: 156: suma=(sensoresP[0]+sensoresP[1]+sensoresP[3]+sensoresP[3]+sensoresP[4]);
 "156
-[e :UE 105 ]
+[e = _suma -> + + + + *U + &U _sensoresP * -> -> -> 0 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux *U + &U _sensoresP * -> -> -> 1 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux *U + &U _sensoresP * -> -> -> 3 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux *U + &U _sensoresP * -> -> -> 3 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux *U + &U _sensoresP * -> -> -> 4 `i `ui `ux -> -> # *U &U _sensoresP `ui `ux `l ]
+[; ;WIPLOZ.c: 157: pos=(sumap/suma);
+"157
+[e = _pos / _sumap _suma ]
+[; ;WIPLOZ.c: 159: if(poslast<=200 && pos==-1){
+"159
+[e $ ! && <= _poslast -> -> 200 `i `l == _pos -> -U -> 1 `i `l 104  ]
+{
+[; ;WIPLOZ.c: 160: pos=0;
+"160
+[e = _pos -> -> 0 `i `l ]
+"161
 }
-"158
+[e :U 104 ]
+[; ;WIPLOZ.c: 161: }
+[; ;WIPLOZ.c: 162: if(poslast>=500 && pos==-1){
+"162
+[e $ ! && >= _poslast -> -> 500 `i `l == _pos -> -U -> 1 `i `l 105  ]
+{
+[; ;WIPLOZ.c: 163: pos=700;
+"163
+[e = _pos -> -> 700 `i `l ]
+"164
+}
+[e :U 105 ]
+[; ;WIPLOZ.c: 164: }
+[; ;WIPLOZ.c: 165: poslast=pos;
+"165
+[e = _poslast _pos ]
+[; ;WIPLOZ.c: 166: return pos;
+"166
+[e ) -> _pos `i ]
+[e $UE 103  ]
+[; ;WIPLOZ.c: 167: }
+"167
+[e :UE 103 ]
+}
+"169
 [v _PID `(v ~T0 @X0 1 ef ]
 {
-[; ;WIPLOZ.c: 158: void PID(){
+[; ;WIPLOZ.c: 169: void PID(){
 [e :U _PID ]
 [f ]
-[; ;WIPLOZ.c: 159: proporcional=pos-setpoint;
-"159
+[; ;WIPLOZ.c: 170: proporcional=pos-setpoint;
+"170
 [e = _proporcional -> - _pos -> _setpoint `l `i ]
-[; ;WIPLOZ.c: 160: derivativo=proporcional-last_prop;
-"160
+[; ;WIPLOZ.c: 171: derivativo=proporcional-last_prop;
+"171
 [e = _derivativo - _proporcional _last_prop ]
-[; ;WIPLOZ.c: 161: integral=error1+error2+error3+error4+error5+error6;
-"161
+[; ;WIPLOZ.c: 172: integral=error1+error2+error3+error4+error5+error6;
+"172
 [e = _integral + + + + + _error1 _error2 _error3 _error4 _error5 _error6 ]
-[; ;WIPLOZ.c: 162: last_prop=proporcional;
-"162
+[; ;WIPLOZ.c: 173: last_prop=proporcional;
+"173
 [e = _last_prop _proporcional ]
-[; ;WIPLOZ.c: 163: error6=error5;
-"163
+[; ;WIPLOZ.c: 174: error6=error5;
+"174
 [e = _error6 _error5 ]
-[; ;WIPLOZ.c: 164: error5=error4;
-"164
+[; ;WIPLOZ.c: 175: error5=error4;
+"175
 [e = _error5 _error4 ]
-[; ;WIPLOZ.c: 165: error4=error3;
-"165
+[; ;WIPLOZ.c: 176: error4=error3;
+"176
 [e = _error4 _error3 ]
-[; ;WIPLOZ.c: 166: error3=error2;
-"166
+[; ;WIPLOZ.c: 177: error3=error2;
+"177
 [e = _error3 _error2 ]
-[; ;WIPLOZ.c: 167: error2=error1;
-"167
+[; ;WIPLOZ.c: 178: error2=error1;
+"178
 [e = _error2 _error1 ]
-[; ;WIPLOZ.c: 168: error1=proporcional;
-"168
+[; ;WIPLOZ.c: 179: error1=proporcional;
+"179
 [e = _error1 _proporcional ]
 [v _diferencial `i ~T0 @X0 1 a ]
-[; ;WIPLOZ.c: 169: int diferencial=(proporcional*KP) + (derivativo*KD) + (integral*KI);
-"169
-[e = _diferencial -> + + * -> _proporcional `f _KP * -> _derivativo `f _KD * -> _integral `f _KI `i ]
-[; ;WIPLOZ.c: 170: if(diferencial > vel) diferencial=vel;
-"170
-[e $ ! > _diferencial _vel 109  ]
-[e = _diferencial _vel ]
-[e $U 110  ]
-"171
-[e :U 109 ]
-[; ;WIPLOZ.c: 171: else if(diferencial < -vel) diferencial=-vel;
-[e $ ! < _diferencial -U _vel 111  ]
-[e = _diferencial -U _vel ]
-[e :U 111 ]
-"172
-[e :U 110 ]
-[; ;WIPLOZ.c: 172: (diferencial < 0)?
-[; ;WIPLOZ.c: 173: motores(vel, vel+diferencial):motores(vel-diferencial, vel);
-"173
-[e ? < _diferencial -> 0 `i : ( _motores (2 , _vel + _vel _diferencial ( _motores (2 , - _vel _diferencial _vel ]
-[; ;WIPLOZ.c: 176: }
-"176
-[e :UE 108 ]
-}
-"178
-[v _Frenos `(v ~T0 @X0 1 ef ]
-{
-[; ;WIPLOZ.c: 178: void Frenos(){
-[e :U _Frenos ]
-[f ]
-[; ;WIPLOZ.c: 179: if(pos<=50){
-"179
-[e $ ! <= _pos -> -> 50 `i `l 113  ]
-{
-[; ;WIPLOZ.c: 180: motores(veladelante, -velatras);
+[; ;WIPLOZ.c: 180: int diferencial=(proporcional*KP) + (derivativo*KD) + (integral*KI);
 "180
-[e ( _motores (2 , _veladelante -U _velatras ]
+[e = _diferencial -> + + * -> _proporcional `f _KP * -> _derivativo `f _KD * -> _integral `f _KI `i ]
+[; ;WIPLOZ.c: 181: if(diferencial > vel) diferencial=vel;
 "181
-}
-[e :U 113 ]
-[; ;WIPLOZ.c: 181: }
-[; ;WIPLOZ.c: 182: if(pos>=350){
+[e $ ! > _diferencial _vel 107  ]
+[e = _diferencial _vel ]
+[e $U 108  ]
 "182
-[e $ ! >= _pos -> -> 350 `i `l 114  ]
-{
-[; ;WIPLOZ.c: 183: motores(-velatras, veladelante);
+[e :U 107 ]
+[; ;WIPLOZ.c: 182: else if(diferencial < -vel) diferencial=-vel;
+[e $ ! < _diferencial -U _vel 109  ]
+[e = _diferencial -U _vel ]
+[e :U 109 ]
 "183
-[e ( _motores (2 , -U _velatras _veladelante ]
+[e :U 108 ]
+[; ;WIPLOZ.c: 183: (diferencial < 0)?
+[; ;WIPLOZ.c: 184: motores(vel, vel+diferencial):motores(vel-diferencial, vel);
 "184
+[e ? < _diferencial -> 0 `i : ( _motores (2 , _vel + _vel _diferencial ( _motores (2 , - _vel _diferencial _vel ]
+[; ;WIPLOZ.c: 187: }
+"187
+[e :UE 106 ]
 }
-[e :U 114 ]
-[; ;WIPLOZ.c: 184: }
-[; ;WIPLOZ.c: 185: }
-"185
-[e :UE 112 ]
-}
-"189
+"191
 [v _Trigger `(v ~T0 @X0 1 ef ]
 {
-[; ;WIPLOZ.c: 189: void Trigger(){
+[; ;WIPLOZ.c: 191: void Trigger(){
 [e :U _Trigger ]
 [f ]
-[; ;WIPLOZ.c: 190: while (PORTAbits.RA0==0){
-"190
-[e $U 116  ]
-[e :U 117 ]
-{
-"191
-}
-[e :U 116 ]
-"190
-[e $ == -> . . _PORTAbits 0 0 `i -> 0 `i 117  ]
-[e :U 118 ]
-[; ;WIPLOZ.c: 191: }
-[; ;WIPLOZ.c: 192: }
+[; ;WIPLOZ.c: 192: while (PORTAbits.RA0==0){
 "192
-[e :UE 115 ]
+[e $U 111  ]
+[e :U 112 ]
+{
+"193
 }
-"196
+[e :U 111 ]
+"192
+[e $ == -> . . _PORTAbits 0 0 `i -> 0 `i 112  ]
+[e :U 113 ]
+[; ;WIPLOZ.c: 193: }
+[; ;WIPLOZ.c: 194: }
+"194
+[e :UE 110 ]
+}
+"198
 [v _Lee_Linea `(v ~T0 @X0 1 ef ]
 {
-[; ;WIPLOZ.c: 196: void Lee_Linea(){
+[; ;WIPLOZ.c: 198: void Lee_Linea(){
 [e :U _Lee_Linea ]
 [f ]
-[; ;WIPLOZ.c: 198: }
-"198
-[e :UE 119 ]
-}
+[; ;WIPLOZ.c: 200: }
 "200
+[e :UE 114 ]
+}
+"202
 [v _EST `(v ~T0 @X0 1 ef ]
 {
-[; ;WIPLOZ.c: 200: void EST(){
+[; ;WIPLOZ.c: 202: void EST(){
 [e :U _EST ]
 [f ]
-[; ;WIPLOZ.c: 201: if(PORTDbits.RD7==0 && PORTDbits.RD6==1 ){
-"201
-[e $ ! && == -> . . _PORTDbits 0 7 `i -> 0 `i == -> . . _PORTDbits 0 6 `i -> 1 `i 121  ]
+[; ;WIPLOZ.c: 203: if(PORTDbits.RD7==0 && PORTDbits.RD6==1 ){
+"203
+[e $ ! && == -> . . _PORTDbits 0 7 `i -> 0 `i == -> . . _PORTDbits 0 6 `i -> 1 `i 116  ]
 {
-[; ;WIPLOZ.c: 202: m=1;
-"202
-[e = _m -> 1 `i ]
+[; ;WIPLOZ.c: 204: m=1;
 "204
-}
-[; ;WIPLOZ.c: 204: }
-[e $U 122  ]
-"205
-[e :U 121 ]
-[; ;WIPLOZ.c: 205: else if(PORTDbits.RD7==1 && PORTDbits.RD6==0){
-[e $ ! && == -> . . _PORTDbits 0 7 `i -> 1 `i == -> . . _PORTDbits 0 6 `i -> 0 `i 123  ]
-{
-[; ;WIPLOZ.c: 206: m=2;
+[e = _m -> 1 `i ]
 "206
-[e = _m -> 2 `i ]
+}
+[; ;WIPLOZ.c: 206: }
+[e $U 117  ]
 "207
-}
-[; ;WIPLOZ.c: 207: }
-[e $U 124  ]
+[e :U 116 ]
+[; ;WIPLOZ.c: 207: else if(PORTDbits.RD7==1 && PORTDbits.RD6==0){
+[e $ ! && == -> . . _PORTDbits 0 7 `i -> 1 `i == -> . . _PORTDbits 0 6 `i -> 0 `i 118  ]
+{
+[; ;WIPLOZ.c: 208: m=2;
 "208
-[e :U 123 ]
-[; ;WIPLOZ.c: 208: else if(PORTDbits.RD7==1 && PORTDbits.RD6==1){
-[e $ ! && == -> . . _PORTDbits 0 7 `i -> 1 `i == -> . . _PORTDbits 0 6 `i -> 1 `i 125  ]
-{
-[; ;WIPLOZ.c: 209: m=3;
+[e = _m -> 2 `i ]
 "209
-[e = _m -> 3 `i ]
+}
+[; ;WIPLOZ.c: 209: }
+[e $U 119  ]
 "210
-}
-[; ;WIPLOZ.c: 210: }
-[e $U 126  ]
-"211
-[e :U 125 ]
-[; ;WIPLOZ.c: 211: else{
+[e :U 118 ]
+[; ;WIPLOZ.c: 210: else if(PORTDbits.RD7==1 && PORTDbits.RD6==1){
+[e $ ! && == -> . . _PORTDbits 0 7 `i -> 1 `i == -> . . _PORTDbits 0 6 `i -> 1 `i 120  ]
 {
-[; ;WIPLOZ.c: 212: m=0;
+[; ;WIPLOZ.c: 211: m=3;
+"211
+[e = _m -> 3 `i ]
 "212
-[e = _m -> 0 `i ]
-"213
 }
-[e :U 126 ]
-[e :U 124 ]
-[e :U 122 ]
-[; ;WIPLOZ.c: 213: }
-[; ;WIPLOZ.c: 214: }
+[; ;WIPLOZ.c: 212: }
+[e $U 121  ]
+"213
+[e :U 120 ]
+[; ;WIPLOZ.c: 213: else{
+{
+[; ;WIPLOZ.c: 214: m=0;
 "214
-[e :UE 120 ]
+[e = _m -> 0 `i ]
+"215
+}
+[e :U 121 ]
+[e :U 119 ]
+[e :U 117 ]
+[; ;WIPLOZ.c: 215: }
+[; ;WIPLOZ.c: 216: }
+"216
+[e :UE 115 ]
 }
 "218
+[v _Frenos `(v ~T0 @X0 1 ef ]
+{
+[; ;WIPLOZ.c: 218: void Frenos(){
+[e :U _Frenos ]
+[f ]
+[; ;WIPLOZ.c: 219: if(pos<=50){
+"219
+[e $ ! <= _pos -> -> 50 `i `l 123  ]
+{
+[; ;WIPLOZ.c: 220: motores(veladelante, -velatras);
+"220
+[e ( _motores (2 , _veladelante -U _velatras ]
+"221
+}
+[e :U 123 ]
+[; ;WIPLOZ.c: 221: }
+[; ;WIPLOZ.c: 222: if(pos>=350){
+"222
+[e $ ! >= _pos -> -> 350 `i `l 124  ]
+{
+[; ;WIPLOZ.c: 223: motores(-velatras, veladelante);
+"223
+[e ( _motores (2 , -U _velatras _veladelante ]
+"224
+}
+[e :U 124 ]
+[; ;WIPLOZ.c: 224: }
+[; ;WIPLOZ.c: 225: }
+"225
+[e :UE 122 ]
+}
+"229
 [v _inicia `(v ~T0 @X0 1 ef ]
 {
-[; ;WIPLOZ.c: 218: void inicia(){
+[; ;WIPLOZ.c: 229: void inicia(){
 [e :U _inicia ]
 [f ]
-[; ;WIPLOZ.c: 221: INTCONbits.GIE = 1;
-"221
+[; ;WIPLOZ.c: 232: INTCONbits.GIE = 1;
+"232
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;WIPLOZ.c: 222: INTCONbits.PEIE = 1;
-"222
+[; ;WIPLOZ.c: 233: INTCONbits.PEIE = 1;
+"233
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-[; ;WIPLOZ.c: 223: INTCONbits.INTE = 1;
-"223
-[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
-[; ;WIPLOZ.c: 224: INTCONbits.INTF = 0;
-"224
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-[; ;WIPLOZ.c: 228: OPTION_REGbits.INTEDG = 1;
-"228
-[e = . . _OPTION_REGbits 0 4 -> -> 1 `i `uc ]
-[; ;WIPLOZ.c: 234: TRISA=0b001111;
+[; ;WIPLOZ.c: 234: INTCONbits.INTE = 1;
 "234
-[e = _TRISA -> -> 15 `i `uc ]
-[; ;WIPLOZ.c: 235: TRISB=0b00000011;
+[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
+[; ;WIPLOZ.c: 235: INTCONbits.INTF = 0;
 "235
-[e = _TRISB -> -> 3 `i `uc ]
-[; ;WIPLOZ.c: 236: TRISC=0b10010000;
-"236
-[e = _TRISC -> -> 144 `i `uc ]
-[; ;WIPLOZ.c: 237: TRISD=0b11111111;
-"237
-[e = _TRISD -> -> 255 `i `uc ]
-[; ;WIPLOZ.c: 238: TRISE=0b000;
-"238
-[e = _TRISE -> -> 0 `i `uc ]
-[; ;WIPLOZ.c: 241: ADCON1= 0x06;
-"241
-[e = _ADCON1 -> -> 6 `i `uc ]
-[; ;WIPLOZ.c: 243: PORTA=0b000000;
-"243
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;WIPLOZ.c: 244: PORTB=0x00;
-"244
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;WIPLOZ.c: 245: PORTC=0x00;
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+[; ;WIPLOZ.c: 239: OPTION_REGbits.INTEDG = 1;
+"239
+[e = . . _OPTION_REGbits 0 4 -> -> 1 `i `uc ]
+[; ;WIPLOZ.c: 245: TRISA=0b001111;
 "245
-[e = _PORTC -> -> 0 `i `uc ]
-[; ;WIPLOZ.c: 246: PORTD=0x00;
+[e = _TRISA -> -> 15 `i `uc ]
+[; ;WIPLOZ.c: 246: TRISB=0b00000011;
 "246
-[e = _PORTD -> -> 0 `i `uc ]
-[; ;WIPLOZ.c: 247: PORTE=0b000;
+[e = _TRISB -> -> 3 `i `uc ]
+[; ;WIPLOZ.c: 247: TRISC=0b10010000;
 "247
-[e = _PORTE -> -> 0 `i `uc ]
-[; ;WIPLOZ.c: 250: PORTCbits.RC0=1;
-"250
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-[; ;WIPLOZ.c: 252: return;
+[e = _TRISC -> -> 144 `i `uc ]
+[; ;WIPLOZ.c: 248: TRISD=0b11111111;
+"248
+[e = _TRISD -> -> 255 `i `uc ]
+[; ;WIPLOZ.c: 249: TRISE=0b000;
+"249
+[e = _TRISE -> -> 0 `i `uc ]
+[; ;WIPLOZ.c: 252: ADCON1= 0x06;
 "252
-[e $UE 127  ]
-[; ;WIPLOZ.c: 253: }
-"253
-[e :UE 127 ]
+[e = _ADCON1 -> -> 6 `i `uc ]
+[; ;WIPLOZ.c: 254: PORTA=0b000000;
+"254
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;WIPLOZ.c: 255: PORTB=0x00;
+"255
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;WIPLOZ.c: 256: PORTC=0x00;
+"256
+[e = _PORTC -> -> 0 `i `uc ]
+[; ;WIPLOZ.c: 257: PORTD=0x00;
+"257
+[e = _PORTD -> -> 0 `i `uc ]
+[; ;WIPLOZ.c: 258: PORTE=0b000;
+"258
+[e = _PORTE -> -> 0 `i `uc ]
+[; ;WIPLOZ.c: 261: PORTCbits.RC0=1;
+"261
+[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
+[; ;WIPLOZ.c: 263: return;
+"263
+[e $UE 125  ]
+[; ;WIPLOZ.c: 264: }
+"264
+[e :UE 125 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"255
+"266
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;WIPLOZ.c: 255: void main(void) {
+[; ;WIPLOZ.c: 266: void main(void) {
 [e :U _main ]
 [f ]
-[; ;WIPLOZ.c: 257: inicia();
-"257
-[e ( _inicia ..  ]
-[; ;WIPLOZ.c: 259: Trigger();
-"259
-[e ( _Trigger ..  ]
-[; ;WIPLOZ.c: 260: EST();
-"260
-[e ( _EST ..  ]
-[; ;WIPLOZ.c: 261: PORTEbits.RE2 = 1;
-"261
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;WIPLOZ.c: 262: while(1){
-"262
-[e :U 130 ]
-{
-"267
-}
-[e :U 129 ]
-"262
-[e $U 130  ]
-[e :U 131 ]
-[; ;WIPLOZ.c: 267: }
-[; ;WIPLOZ.c: 268: return;
+[; ;WIPLOZ.c: 268: inicia();
 "268
-[e $UE 128  ]
-[; ;WIPLOZ.c: 270: }
+[e ( _inicia ..  ]
+[; ;WIPLOZ.c: 269: PWM_ST();
+"269
+[e ( _PWM_ST ..  ]
+[; ;WIPLOZ.c: 270: Trigger();
 "270
-[e :UE 128 ]
+[e ( _Trigger ..  ]
+[; ;WIPLOZ.c: 271: EST();
+"271
+[e ( _EST ..  ]
+[; ;WIPLOZ.c: 272: PORTEbits.RE2 = 1;
+"272
+[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
+[; ;WIPLOZ.c: 273: while(1){
+"273
+[e :U 128 ]
+{
+[; ;WIPLOZ.c: 274: Frenos();
+"274
+[e ( _Frenos ..  ]
+[; ;WIPLOZ.c: 275: Lectura();
+"275
+[e ( _Lectura ..  ]
+[; ;WIPLOZ.c: 276: PID();
+"276
+[e ( _PID ..  ]
+"278
+}
+[e :U 127 ]
+"273
+[e $U 128  ]
+[e :U 129 ]
+[; ;WIPLOZ.c: 278: }
+[; ;WIPLOZ.c: 279: return;
+"279
+[e $UE 126  ]
+[; ;WIPLOZ.c: 281: }
+"281
+[e :UE 126 ]
 }

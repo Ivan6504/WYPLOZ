@@ -120,12 +120,23 @@ void motores(int VI, int VD){
 //----------Subrutina de I EXT-------------
 void __interrupt external(){
  if(INTCONbits.INTF == 1){                          //COMPRUEBA SI SE HA RECIBIDO UNA INTERRUPCION 
+     
   //INSERTAR LO QUE HAY QUE HACER 
-     __delay_ms(100);
-     if (PORTEbits.RE2 == 0){
-         PORTEbits.RE2 = 1;
-     }else
-         PORTEbits.RE2 = 0;
+    PORTEbits.RE2=~PORTEbits.RE2;
+    
+   
+    //que cambie de direccion el motor izquierdo
+    int duty = ((float)0/1023)*PWM_Max_Duty();
+    CCP1X = duty & 2;
+    CCP1Y = duty & 1;
+    CCPR1L = duty>>2;
+    
+    //que cambie de direccion el motor izquierdo
+    int duty2 = ((float)0/1023)*PWM_Max_Duty();
+    CCP2X = duty2 & 2;
+    CCP2Y = duty2 & 1;
+    CCPR2L = duty2>>2;
+    __delay_ms(1000);
   ///////////////////////////////
   INTCONbits.INTF = 0;                               //LIMPIA LA BANDERA 
  }   
@@ -175,15 +186,6 @@ void PID(){
     
 }
 
-void Frenos(){
-  if(pos<=50){
-    motores(veladelante, -velatras);
-  }
-  if(pos>=350){
-    motores(-velatras, veladelante);
-  }
-}
-
 
 
 void Trigger(){
@@ -211,6 +213,15 @@ else if(MSB==1 && LSB==1){
 else{
   m=0;  //MODO 0
 }
+}
+
+void Frenos(){
+  if(pos<=50){
+    motores(veladelante, -velatras);
+  }
+  if(pos>=350){
+    motores(-velatras, veladelante);
+  }
 }
 
 
@@ -255,15 +266,15 @@ return;
 void main(void) {
     
 inicia();                      //RUTINA QUE INICIA EL PIC 
-//PWM_ST();                      //SUBRUTINA QUE INICIALIZA EL PWM
+PWM_ST();                      //SUBRUTINA QUE INICIALIZA EL PWM
 Trigger();                     //espera el arrancador
 EST();   
 PORTEbits.RE2 = 1;
 while(1){
-  //  Frenos()
- //   Lectura();
- //   PID();
-    //Lee_Linea()       //lee los sensores de linea que no tienen interrupcion y hace los mov necesarios
+    Frenos();
+    Lectura();
+    PID();
+    //Lee_Linea();       //lee los sensores de linea que no tienen interrupcion y hace los mov necesarios
 }
 return;
 

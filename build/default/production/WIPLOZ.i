@@ -1971,11 +1971,22 @@ PWM2_Duty(VD);
 void __interrupt external(){
 if(INTCONbits.INTF == 1){
 
-_delay((unsigned long)((100)*(4000000/4000.0)));
-if (PORTEbits.RE2 == 0){
-PORTEbits.RE2 = 1;
-}else
-PORTEbits.RE2 = 0;
+
+PORTEbits.RE2=~PORTEbits.RE2;
+
+
+
+int duty = ((float)0/1023)*PWM_Max_Duty();
+CCP1X = duty & 2;
+CCP1Y = duty & 1;
+CCPR1L = duty>>2;
+
+
+int duty2 = ((float)0/1023)*PWM_Max_Duty();
+CCP2X = duty2 & 2;
+CCP2Y = duty2 & 1;
+CCPR2L = duty2>>2;
+_delay((unsigned long)((1000)*(4000000/4000.0)));
 
 INTCONbits.INTF = 0;
 }
@@ -2025,15 +2036,6 @@ motores(vel, vel+diferencial):motores(vel-diferencial, vel);
 
 }
 
-void Frenos(){
-if(pos<=50){
-motores(veladelante, -velatras);
-}
-if(pos>=350){
-motores(-velatras, veladelante);
-}
-}
-
 
 
 void Trigger(){
@@ -2063,6 +2065,15 @@ m=0;
 }
 }
 
+void Frenos(){
+if(pos<=50){
+motores(veladelante, -velatras);
+}
+if(pos>=350){
+motores(-velatras, veladelante);
+}
+}
+
 
 
 void inicia(){
@@ -2077,7 +2088,7 @@ INTCONbits.INTF = 0;
 
 OPTION_REGbits.INTEDG = 1;
 
-# 234
+# 245
 TRISA=0b001111;
 TRISB=0b00000011;
 TRISC=0b10010000;
@@ -2102,14 +2113,14 @@ return;
 void main(void) {
 
 inicia();
-
+PWM_ST();
 Trigger();
 EST();
 PORTEbits.RE2 = 1;
 while(1){
-
-
-
+Frenos();
+Lectura();
+PID();
 
 }
 return;
