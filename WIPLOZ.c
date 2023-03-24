@@ -52,10 +52,10 @@
 #define READY PORTBbits.RB1 
 
 //Motores
-#define MI1 PORTBbits.RB2 
-#define MI2 PORTBbits.RB3 
-#define MD1 PORTBbits.RB4 
-#define MD2 PORTBbits.RB5 
+#define ML1 PORTBbits.RB2 
+#define ML2 PORTBbits.RB3 
+#define MR1 PORTBbits.RB4 
+#define MR2 PORTBbits.RB5 
 #define stby PORTCbits.RC0 
 #define PWML PORTCbits.RC1
 #define PWMR PORTCbits.RC2 
@@ -94,27 +94,27 @@ int setpoint=200;
 void motores(int VI, int VD){
   //Motor izquierdo
   if(VI>=0){
-    MI1 = 1;
-    MI2 = 0;
+    ML1 = 1;
+    ML2 = 0;
   }
   else{
-    MI1 = 0;
-    MI2 = 1;
+    ML1 = 0;
+    ML2 = 1;
     VI=VI*(-1);
   }
-  PWM1_Duty(VI);
+  PWM2_Duty(VI);
   
    //motor derecho
   if(VD>=0){
-    MD1 = 1;
-    MD2 = 0;
+    MR1 = 1;
+    MR2 = 0;
   }
   else{
-    MD1 = 0;
-    MD2 = 1;
+    MR1 = 0;
+    MR2 = 1;
     VD=VD*(-1);
   }
-   PWM2_Duty(VD);
+   PWM1_Duty(VD);
 }
 
 //----------Subrutina de I EXT-------------
@@ -217,6 +217,33 @@ void Frenos(){
   }
 }
 
+void prueba(){ 
+  
+    //mueve el motor derecho hacia adelante
+    motores(0,50);    
+    __delay_ms(2000);
+     //mueve el motor izquierdo hacia adelante   
+    motores(50,0);    
+    __delay_ms(2000);
+     //mueve el motor derecho hacia atras
+    motores(0,-50);  
+    __delay_ms(2000);
+    //mueve el motor izquierdo hacia atras  
+    motores(-50,0);  
+    __delay_ms(2000);
+    motores(0,0); 
+    //blink de roberto
+    roverto=0;
+    __delay_ms(500); 
+    roverto=1;
+    __delay_ms(500); 
+    roverto=0;
+    __delay_ms(500); 
+    roverto=1;
+    __delay_ms(500);
+    roverto=0;
+
+}
 
 
 void inicia(){
@@ -260,16 +287,24 @@ void main(void) {
     
 inicia();                      //RUTINA QUE INICIA EL PIC 
 PWM_ST();                      //SUBRUTINA QUE INICIALIZA EL PWM
+
 while(1){
+    
+    while(GO==0){   //la prueba se ejecutara cuando el pin de go este en 1
+    }
+    prueba();  
+
+    /*
 EST();                         //lee la estrategia
     while(GO==1){
         Frenos();
         Lectura();
         PID();
-    //Lee_Linea();       //lee los sensores de linea que no tienen interrupcion y hace los mov necesarios
-    //leapagar();;
+        //esto no lo descomentes xd
+    ////////////////Lee_Linea();       //lee los sensores de linea que no tienen interrupcion y hace los mov necesarios
+    /////////////////leapagar();;
     }
-    motores(0,0);    
+    motores(0,0);    */
 }
 return;
 

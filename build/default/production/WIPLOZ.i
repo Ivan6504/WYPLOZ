@@ -1952,7 +1952,7 @@ PORTBbits.RB2 = 0;
 PORTBbits.RB3 = 1;
 VI=VI*(-1);
 }
-PWM1_Duty(VI);
+PWM2_Duty(VI);
 
 
 if(VD>=0){
@@ -1964,7 +1964,7 @@ PORTBbits.RB4 = 0;
 PORTBbits.RB5 = 1;
 VD=VD*(-1);
 }
-PWM2_Duty(VD);
+PWM1_Duty(VD);
 }
 
 
@@ -2067,6 +2067,33 @@ motores(-velatras, veladelante);
 }
 }
 
+void prueba(){
+
+
+motores(0,50);
+_delay((unsigned long)((2000)*(4000000/4000.0)));
+
+motores(50,0);
+_delay((unsigned long)((2000)*(4000000/4000.0)));
+
+motores(0,-50);
+_delay((unsigned long)((2000)*(4000000/4000.0)));
+
+motores(-50,0);
+_delay((unsigned long)((2000)*(4000000/4000.0)));
+
+
+PORTEbits.RE2=0;
+_delay((unsigned long)((500)*(4000000/4000.0)));
+PORTEbits.RE2=1;
+_delay((unsigned long)((500)*(4000000/4000.0)));
+PORTEbits.RE2=0;
+_delay((unsigned long)((500)*(4000000/4000.0)));
+PORTEbits.RE2=1;
+_delay((unsigned long)((500)*(4000000/4000.0)));
+PORTEbits.RE2=0;
+
+}
 
 
 void inicia(){
@@ -2081,7 +2108,7 @@ INTCONbits.INTF = 0;
 
 OPTION_REGbits.INTEDG = 1;
 
-# 238
+# 265
 TRISA=0b001111;
 TRISB=0b00000011;
 TRISC=0b10010000;
@@ -2107,16 +2134,14 @@ void main(void) {
 
 inicia();
 PWM_ST();
+
 while(1){
-EST();
-while(PORTAbits.RA0==1){
-Frenos();
-Lectura();
-PID();
 
-
+while(PORTAbits.RA0==0){
 }
-motores(0,0);
+prueba();
+
+# 308
 }
 return;
 
