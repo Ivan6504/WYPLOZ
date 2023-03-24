@@ -62,7 +62,7 @@ dataBANK2 BANK2 1 132 132 14 1 1
 dataBANK3 BANK3 1 1EC 1EC 4 1 1
 clrtext CODE 0 1F5D 1F5D 8 2 1
 config CONFIG 4 2007 2007 1 2 1
-$C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.o
+$C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.o
 idloc IDLOC 5 2000 2000 4 2 1
 reset_vec CODE 0 0 0 3 2 1
 end_init CODE 0 10 10 3 2 1
@@ -114,49 +114,49 @@ STRING 1800-1F58 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\WIPLOZ.X.production.o
-13 cinit CODE >676:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-13 cinit CODE >679:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-13 cinit CODE >838:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-14 cinit CODE >839:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-15 cinit CODE >840:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-16 cinit CODE >841:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-17 cinit CODE >842:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-18 cinit CODE >843:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-19 cinit CODE >844:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1A cinit CODE >845:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1B cinit CODE >846:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1C cinit CODE >847:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-21 cinit CODE >851:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-22 cinit CODE >852:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-23 cinit CODE >853:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-24 cinit CODE >854:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-25 cinit CODE >855:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-26 cinit CODE >856:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-27 cinit CODE >857:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-28 cinit CODE >858:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-29 cinit CODE >859:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-2E cinit CODE >863:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-2F cinit CODE >864:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-30 cinit CODE >865:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-31 cinit CODE >866:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-32 cinit CODE >867:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-33 cinit CODE >868:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-34 cinit CODE >869:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-35 cinit CODE >870:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-36 cinit CODE >871:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-37 cinit CODE >872:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-3C cinit CODE >891:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-3D cinit CODE >892:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-3E cinit CODE >893:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-3F cinit CODE >894:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-40 cinit CODE >895:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-45 cinit CODE >898:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-46 cinit CODE >899:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-47 cinit CODE >900:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-48 cinit CODE >901:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-4D cinit CODE >907:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-4D cinit CODE >909:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-4E cinit CODE >910:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
+13 cinit CODE >676:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+13 cinit CODE >679:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+13 cinit CODE >838:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+14 cinit CODE >839:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+15 cinit CODE >840:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+16 cinit CODE >841:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+17 cinit CODE >842:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+18 cinit CODE >843:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+19 cinit CODE >844:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1A cinit CODE >845:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1B cinit CODE >846:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1C cinit CODE >847:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+21 cinit CODE >851:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+22 cinit CODE >852:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+23 cinit CODE >853:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+24 cinit CODE >854:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+25 cinit CODE >855:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+26 cinit CODE >856:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+27 cinit CODE >857:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+28 cinit CODE >858:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+29 cinit CODE >859:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+2E cinit CODE >863:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+2F cinit CODE >864:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+30 cinit CODE >865:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+31 cinit CODE >866:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+32 cinit CODE >867:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+33 cinit CODE >868:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+34 cinit CODE >869:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+35 cinit CODE >870:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+36 cinit CODE >871:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+37 cinit CODE >872:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+3C cinit CODE >891:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+3D cinit CODE >892:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+3E cinit CODE >893:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+3F cinit CODE >894:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+40 cinit CODE >895:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+45 cinit CODE >898:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+46 cinit CODE >899:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+47 cinit CODE >900:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+48 cinit CODE >901:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+4D cinit CODE >907:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+4D cinit CODE >909:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+4E cinit CODE >910:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
 4 intentry CODE >121:C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
 13CF text31 CODE >5:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\aldiv.c
 13CF text31 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\aldiv.c
@@ -1374,33 +1374,33 @@ A0B text7 CODE >187:C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
 1076 maintext CODE >268:C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
 107B maintext CODE >265:C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
 1081 maintext CODE >272:C:\Users\Iván Iñiguez\Desktop\Gurren\WIPLOZ.X\WIPLOZ.c
-1F5D clrtext CODE >878:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F5D clrtext CODE >879:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F5E clrtext CODE >880:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F5E clrtext CODE >881:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F5F clrtext CODE >882:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F60 clrtext CODE >883:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F61 clrtext CODE >884:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F62 clrtext CODE >885:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F63 clrtext CODE >886:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F64 clrtext CODE >887:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F6E inittext CODE >812:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F6E inittext CODE >813:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F6F inittext CODE >814:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F70 inittext CODE >815:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F71 inittext CODE >816:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F72 inittext CODE >823:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F72 inittext CODE >824:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F77 inittext CODE >825:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F78 inittext CODE >826:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F79 inittext CODE >827:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F7A inittext CODE >828:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F7B inittext CODE >829:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F7C inittext CODE >830:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F7D inittext CODE >831:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F7E inittext CODE >832:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F7F inittext CODE >833:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
-1F80 inittext CODE >834:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.s
+1F5D clrtext CODE >878:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F5D clrtext CODE >879:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F5E clrtext CODE >880:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F5E clrtext CODE >881:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F5F clrtext CODE >882:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F60 clrtext CODE >883:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F61 clrtext CODE >884:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F62 clrtext CODE >885:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F63 clrtext CODE >886:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F64 clrtext CODE >887:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F6E inittext CODE >812:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F6E inittext CODE >813:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F6F inittext CODE >814:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F70 inittext CODE >815:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F71 inittext CODE >816:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F72 inittext CODE >823:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F72 inittext CODE >824:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F77 inittext CODE >825:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F78 inittext CODE >826:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F79 inittext CODE >827:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F7A inittext CODE >828:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F7B inittext CODE >829:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F7C inittext CODE >830:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F7D inittext CODE >831:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F7E inittext CODE >832:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F7F inittext CODE >833:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
+1F80 inittext CODE >834:C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1438,12 +1438,12 @@ _PWM2_Duty EAE 0 CODE 0 text13 dist/default/production\WIPLOZ.X.production.o
 _PWM2_Init 1020 0 CODE 0 text4 dist/default/production\WIPLOZ.X.production.o
 _proporcional 1DE 0 BANK3 1 bssBANK3 dist/default/production\WIPLOZ.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.o
+___sp 0 0 STACK 2 stack C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.o
 _freq 1EC 0 BANK3 1 dataBANK3 dist/default/production\WIPLOZ.X.production.o
 _main 20B8 0 CODE 0 maintext dist/default/production\WIPLOZ.X.production.o
 _suma 118 0 BANK2 1 bssBANK2 dist/default/production\WIPLOZ.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\WIPLOZ.X.production.o
-start 20 0 CODE 0 init C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.o
+start 20 0 CODE 0 init C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.o
 ___flmul@aexp 19A 0 BANK3 1 cstackBANK3 dist/default/production\WIPLOZ.X.production.o
 ___flmul@bexp 19B 0 BANK3 1 cstackBANK3 dist/default/production\WIPLOZ.X.production.o
 ___flmul@prod 19C 0 BANK3 1 cstackBANK3 dist/default/production\WIPLOZ.X.production.o
@@ -1460,12 +1460,12 @@ __LidataBANK2 0 0 ABS 0 idataBANK2 -
 __LidataBANK3 0 0 ABS 0 idataBANK3 -
 __Hpowerup 0 0 CODE 0 powerup -
 __end_ofi1___xxtofl 2CD2 0 CODE 0 text25 dist/default/production\WIPLOZ.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.o
 ___aldiv@divisor AD 0 BANK1 1 cstackBANK1 dist/default/production\WIPLOZ.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\WIPLOZ.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -1506,8 +1506,8 @@ __end_of___fltol 279E 0 CODE 0 text16 dist/default/production\WIPLOZ.X.productio
 i1___fltol@f1 58 0 BANK0 1 cstackBANK0 dist/default/production\WIPLOZ.X.production.o
 external@duty 68 0 BANK0 1 cstackBANK0 dist/default/production\WIPLOZ.X.production.o
 __Umul8_16@multiplicand A0 0 BANK1 1 cstackBANK1 dist/default/production\WIPLOZ.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.o
-___stacklo 0 0 ABS 0 - C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.o
+___stackhi 0 0 ABS 0 - C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.o
+___stacklo 0 0 ABS 0 - C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.o
 i1___aldiv@counter 28 0 BANK0 1 cstackBANK0 dist/default/production\WIPLOZ.X.production.o
 _PWM_Max_Duty 2442 0 CODE 0 text20 dist/default/production\WIPLOZ.X.production.o
 ___fladd@a 1A6 0 BANK3 1 cstackBANK3 dist/default/production\WIPLOZ.X.production.o
@@ -1533,7 +1533,7 @@ _TRISC1 439 0 ABS 0 - dist/default/production\WIPLOZ.X.production.o
 _TRISC2 43A 0 ABS 0 - dist/default/production\WIPLOZ.X.production.o
 __end_of_PWM2_Start 1020 0 CODE 0 text3 dist/default/production\WIPLOZ.X.production.o
 __end_ofi1__Umul8_16 3FAE 0 CODE 0 text28 dist/default/production\WIPLOZ.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.o
+___int_sp 0 0 STACK 2 stack C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.o
 i1___lmul 2292 0 CODE 0 text30 dist/default/production\WIPLOZ.X.production.o
 _sensoresP 128 0 BANK2 1 bssBANK2 dist/default/production\WIPLOZ.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
@@ -1618,7 +1618,7 @@ i1___flmul@sign 4B 0 BANK0 1 cstackBANK0 dist/default/production\WIPLOZ.X.produc
 i1___flmul@temp 56 0 BANK0 1 cstackBANK0 dist/default/production\WIPLOZ.X.production.o
 _external 2E46 0 CODE 0 text24 dist/default/production\WIPLOZ.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsdro.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\IVNIIG~1\AppData\Local\Temp\xcAsli4.o
 _inicia 3F2A 0 CODE 0 text1 dist/default/production\WIPLOZ.X.production.o
 __end_of___xxtofl 2E46 0 CODE 0 text15 dist/default/production\WIPLOZ.X.production.o
 __pdataBANK0 6C 0 BANK0 1 dataBANK0 dist/default/production\WIPLOZ.X.production.o
